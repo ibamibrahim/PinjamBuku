@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dashboard</title>
+	<title>Book details</title>
 </head>
 <body>
-	<h1>Dashboard</h1>
-	<?php 
-		echo $user['role'];
-	?>
-	<a href="http://localhost:8080/elibrary/index.php/login"><h3>Login</h3></a>
 	<table>
 		<tr>
 			<th>book id</th>
@@ -20,10 +15,10 @@
 			<th>Quantity</th>
 			<th>Action</th>
 		</tr>
-	<?php foreach ($book as $b) { ?>
+	<?php foreach ($bookdetail as $b) { ?>
 		<tr>
 			<td><?php echo $b->book_id ?></td>
-			<td><?php echo "<a href='books/details/" . $b->book_id . "'> <img height=50 src='" . $b->img_path . "'/></a>" ?></td>
+			<td><?php echo "<img height=50 src='" . $b->img_path . "'/>" ?></td>
 			<td><?php echo $b->title?></td>
 			<td><?php echo $b->author?></td>
 			<td><?php echo $b->publisher?></td>

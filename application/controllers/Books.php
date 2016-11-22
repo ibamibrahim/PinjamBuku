@@ -21,7 +21,11 @@ class Books extends CI_Controller {
 		
 	}
 
-	public function details(){
+	public function details($id){
+
+		$data['bookdetail'] = $this->m_data->getBook($id)->result();;
+
+		$this->load->view('v_books_details', $data);
 
 	}
 
