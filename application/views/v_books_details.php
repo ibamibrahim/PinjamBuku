@@ -56,7 +56,23 @@
 			?>
 			</td>
 		</tr>
-	<?php } ?>
 	</table>
+	<?php } ?>
+		<?php foreach ($review as $r) { ?>
+		<?php 
+			echo $r->review_id . " ";
+			echo $r->username . " ";
+			echo $r->content  . " ";
+			echo $r->date . "<br>";
+		?>
+	<?php } ?>
+
+	<!-- add review -->
+
+	<h1>Add review</h1>
+	<form action="books/review" method="post">
+		<textarea name="content"></textarea>
+		<input type="submit" name="submit-review" value="Post review">
+	</form>
 </body>
 </html>

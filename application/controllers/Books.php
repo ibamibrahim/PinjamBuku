@@ -23,10 +23,20 @@ class Books extends CI_Controller {
 
 	public function details($id){
 
-		$data['bookdetail'] = $this->m_data->getBook($id)->result();;
+		$data['bookdetail'] = $this->m_data->getBook($id)->result();
+		$data['review'] = $this->m_data->getReview($id)->result();
 
 		$this->load->view('v_books_details', $data);
 
+	}
+
+	public function review(){
+		$content = $this -> input -> post('submit-review');
+		
+		$user = $this->session->flashdata('userdata');
+		$userId = $user['username'];
+		
+		
 	}
 
 	public function pinjam(){
