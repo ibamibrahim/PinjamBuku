@@ -70,8 +70,15 @@
 	<!-- add review -->
 
 	<h1>Add review</h1>
-	<form action="books/review" method="post">
+	<form action="<?php echo base_url(). 'elibrary/index.php/books/review'; ?>" method="post">
 		<textarea name="content"></textarea>
+		<input type="hidden" name="book-id" value=
+		<?php 
+			foreach ($bookdetail as $b) { 
+				echo "'" . $b->book_id . "'"; 
+			} 
+		?>
+		>
 		<input type="submit" name="submit-review" value="Post review">
 	</form>
 </body>

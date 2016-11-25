@@ -31,12 +31,17 @@ class Books extends CI_Controller {
 	}
 
 	public function review(){
-		$content = $this -> input -> post('submit-review');
-		
+		$content = $this -> input -> post('content');
 		$user = $this->session->flashdata('userdata');
-		$userId = $user['username'];
+		$userId = $user['user_id'];
+		$date = "2016-11-10" ; //dummy
+		$bookid = $this->input->post('book-id'); 
+
+		$sql = "INSERT INTO review (book_id, user_id, date, content) VALUES ('$bookid','1','$date','$content')";
+		$this->db->query($sql);
 		
-		
+		//redirect(base_url(). 'elibrary/index.php/dashboard');
+
 	}
 
 	public function pinjam(){
