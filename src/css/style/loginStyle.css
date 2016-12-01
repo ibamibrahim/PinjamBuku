@@ -1,20 +1,23 @@
 body {
-  background-color:#fff;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  background: url('images/perpus.jpg') no-repeat center fixed;
+  background-size:cover;
 }
 
 .container {
-    padding: 70px;
+    padding: 25px;
     position: fixed;
 }
 
 .form-login {
-    background-color: #FDFDFD;
+    background-color: #EFEFEF;
     padding-top: 10px;
     padding-bottom: 20px;
     padding-left: 20px;
     padding-right: 20px;
     border-radius: 15px;
-    border-color:#d2d2d2;
+    border-color: #d2d2d2;
     border-width: 5px;
     box-shadow:0 1px 0 #cfcfcf;
 }
