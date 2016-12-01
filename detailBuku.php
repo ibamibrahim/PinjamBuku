@@ -10,7 +10,7 @@
 	</head>
 	<body>
 		<div id="nav">
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default navbar-fixed-top">
 				<div class="container-fluid">
 					<div class="navbar-header">
       					<a class="navbar-brand" href="#">PinjamBuku</a>

@@ -1,7 +1,7 @@
 body {
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
-  background: url('images/perpus.jpg') no-repeat center fixed;
+  background: url('../../images/perpus.jpg') no-repeat center fixed;
   background-size:cover;
 }
 
