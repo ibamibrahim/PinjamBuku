@@ -36,7 +36,7 @@
         						<input type="password" class="form-control" name="password" placeholder="Password">
         						<input type="hidden" name="command" value="login">
       							</div>
-      							<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Log in</button>
+      							<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span>  Log in</button>
     							</form>';
     					}
     				?> 

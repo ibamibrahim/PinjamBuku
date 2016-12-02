@@ -6,10 +6,38 @@
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="src/css/bootstrap/dist/css/bootstrap.css">
         <style>
         body{
             background-color: #eeeeee;
+        }
+        .shadow:hover {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        }
+
+        .shadow-1 {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+
+        .shadow-2 {
+            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+
+        .shadow-3 {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+
+        .shadow-4 {
+            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+
+        .shadow-5 {
+            box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
         }
         #book-list{
             padding-right: 50px;
@@ -22,11 +50,6 @@
         }
         .book-card {
             padding: 0px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-        }
-        .book-card:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
         }
         .book-cover {
             width: 100%;
@@ -45,7 +68,7 @@
 	</head>
 	<body>
 		<div id="nav">
-			<nav class="navbar navbar-default navbar-fixed-top">
+			<nav class="navbar navbar-default navbar-fixed-top shadow-1">
 				<div class="container-fluid">
 					<div class="navbar-header">
       					<a class="navbar-brand" href="#">PinjamBuku</a>
@@ -76,7 +99,205 @@
 		</div>
         <div class="container-fluid" id="book-list">
             <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
-                <div class="book-card">
+                <div class="book-card shadow-2 shadow">
+                    <div>
+                        <img src="src/images/dummy.png" alt="" class="book-cover">
+                    </div>
+                    <div class="book-desc">
+                        <div class="pull-left">
+                            <h4>Judul Buku</h4>
+                            <h6>Pengarang</h6>
+                        </div>
+                        <div class="pull-right button-pinjam">
+                            <form action="index.php" method="post">
+                                <input type="hidden" name="command" value="pinjam">
+                                <?php 
+                                   // echo '<input type="hidden" name="book" value="'.$id.'">' 
+                                ?>
+                                <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
+                <div class="book-card shadow-2 shadow">
+                    <div>
+                        <img src="src/images/dummy1.jpg" alt="" class="book-cover">
+                    </div>
+                    <div class="book-desc">
+                        <div class="pull-left">
+                            <h4>Judul Buku</h4>
+                            <h6>Pengarang</h6>
+                        </div>
+                        <div class="pull-right button-pinjam">
+                            <form action="index.php" method="post">
+                                <input type="hidden" name="command" value="pinjam">
+                                <?php 
+                                   // echo '<input type="hidden" name="book" value="'.$id.'">' 
+                                ?>
+                                <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
+                <div class="book-card shadow-2 shadow">
+                    <div>
+                        <img src="src/images/dummy2.jpg" alt="" class="book-cover">
+                    </div>
+                    <div class="book-desc">
+                        <div class="pull-left">
+                            <h4>Judul Buku</h4>
+                            <h6>Pengarang</h6>
+                        </div>
+                        <div class="pull-right button-pinjam">
+                            <form action="index.php" method="post">
+                                <input type="hidden" name="command" value="pinjam">
+                                <?php 
+                                   // echo '<input type="hidden" name="book" value="'.$id.'">' 
+                                ?>
+                                <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
+                <div class="book-card shadow-2 shadow">
+                    <div>
+                        <img src="src/images/dummy3.jpg" alt="" class="book-cover">
+                    </div>
+                    <div class="book-desc">
+                        <div class="pull-left">
+                            <h4>Judul Buku</h4>
+                            <h6>Pengarang</h6>
+                        </div>
+                        <div class="pull-right button-pinjam">
+                            <form action="index.php" method="post">
+                                <input type="hidden" name="command" value="pinjam">
+                                <?php 
+                                   // echo '<input type="hidden" name="book" value="'.$id.'">' 
+                                ?>
+                                <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
+                <div class="book-card shadow-2 shadow">
+                    <div>
+                        <img src="src/images/dummy4.jpg" alt="" class="book-cover">
+                    </div>
+                    <div class="book-desc">
+                        <div class="pull-left">
+                            <h4>Judul Buku</h4>
+                            <h6>Pengarang</h6>
+                        </div>
+                        <div class="pull-right button-pinjam">
+                            <form action="index.php" method="post">
+                                <input type="hidden" name="command" value="pinjam">
+                                <?php 
+                                   // echo '<input type="hidden" name="book" value="'.$id.'">' 
+                                ?>
+                                <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
+                <div class="book-card shadow-2 shadow">
+                    <div>
+                        <img src="src/images/dummy.png" alt="" class="book-cover">
+                    </div>
+                    <div class="book-desc">
+                        <div class="pull-left">
+                            <h4>Judul Buku</h4>
+                            <h6>Pengarang</h6>
+                        </div>
+                        <div class="pull-right button-pinjam">
+                            <form action="index.php" method="post">
+                                <input type="hidden" name="command" value="pinjam">
+                                <?php 
+                                   // echo '<input type="hidden" name="book" value="'.$id.'">' 
+                                ?>
+                                <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
+                <div class="book-card shadow-2 shadow">
+                    <div>
+                        <img src="src/images/dummy.png" alt="" class="book-cover">
+                    </div>
+                    <div class="book-desc">
+                        <div class="pull-left">
+                            <h4>Judul Buku</h4>
+                            <h6>Pengarang</h6>
+                        </div>
+                        <div class="pull-right button-pinjam">
+                            <form action="index.php" method="post">
+                                <input type="hidden" name="command" value="pinjam">
+                                <?php 
+                                   // echo '<input type="hidden" name="book" value="'.$id.'">' 
+                                ?>
+                                <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
+                <div class="book-card shadow-2 shadow">
+                    <div>
+                        <img src="src/images/dummy.png" alt="" class="book-cover">
+                    </div>
+                    <div class="book-desc">
+                        <div class="pull-left">
+                            <h4>Judul Buku</h4>
+                            <h6>Pengarang</h6>
+                        </div>
+                        <div class="pull-right button-pinjam">
+                            <form action="index.php" method="post">
+                                <input type="hidden" name="command" value="pinjam">
+                                <?php 
+                                   // echo '<input type="hidden" name="book" value="'.$id.'">' 
+                                ?>
+                                <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
+                <div class="book-card shadow-2 shadow">
+                    <div>
+                        <img src="src/images/dummy.png" alt="" class="book-cover">
+                    </div>
+                    <div class="book-desc">
+                        <div class="pull-left">
+                            <h4>Judul Buku</h4>
+                            <h6>Pengarang</h6>
+                        </div>
+                        <div class="pull-right button-pinjam">
+                            <form action="index.php" method="post">
+                                <input type="hidden" name="command" value="pinjam">
+                                <?php 
+                                   // echo '<input type="hidden" name="book" value="'.$id.'">' 
+                                ?>
+                                <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
+                <div class="book-card shadow-2 shadow">
                     <div>
                         <img src="src/images/dummy.png" alt="" class="book-cover">
                     </div>
