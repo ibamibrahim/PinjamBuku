@@ -5,7 +5,7 @@ class Dashboard extends CI_Controller {
 	function __construct(){
 		parent::__construct();		
 		// load model
-		$this->load->model('m_data');
+		$this->load->model('m_books');
 
 
 		//load helper
@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller {
 	{
 		$this->load->library('session');
 		$data['user'] = $this->session->userdata();
-		$data['book'] = $this->m_data->getAllBooks()->result();
+		$data['book'] = $this->m_books->getAllBooks()->result();
 		$this->load->view('v_dashboard', $data);
 	}
 }

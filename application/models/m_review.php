@@ -11,6 +11,11 @@
 
 			return $query;
 		}
+
+		function addReview($bookid,$user_id,$date,$content){
+			$sql = "INSERT INTO review (book_id, user_id, date, content) VALUES ('$bookid','$user_id','$date','$content')";
+			$this->db->query($sql);
+		}
 	}
 
 ?>

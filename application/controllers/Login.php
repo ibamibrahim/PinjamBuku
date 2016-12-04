@@ -6,7 +6,7 @@ class Login extends CI_Controller {
 	function __construct(){
 		parent::__construct();		
 		// load model
-		$this->load->model('m_data');
+		$this->load->model('m_user');
 
 
 		//load helper
@@ -26,7 +26,7 @@ class Login extends CI_Controller {
 		$username = $this -> input -> post('username');
 		$password = $this -> input -> post('password');
 	
-		$userData = $this ->m_data-> getUser()->result();
+		$userData = $this ->m_user-> getUser()->result();
 		$isLoggedIn = false;
 
 		foreach($userData as $user){

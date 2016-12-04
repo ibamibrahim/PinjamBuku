@@ -5,7 +5,8 @@ class Books extends CI_Controller {
 	function __construct(){
 		parent::__construct();		
 		// load model
-		$this->load->model('m_data');
+		$this->load->model('m_books');
+		$this->load->model('m_review');
 
 
 		//load helper
@@ -23,8 +24,8 @@ class Books extends CI_Controller {
 
 	public function details($id){
 
-		$data['bookdetail'] = $this->m_data->getBook($id)->result();
-		$data['review'] = $this->m_data->getReview($id)->result();
+		$data['bookdetail'] = $this->m_books->getBook($id)->result();
+		$data['review'] = $this->m_review->getReview($id)->result();
 
 		$this->load->view('v_books_details', $data);
 
@@ -38,8 +39,7 @@ class Books extends CI_Controller {
 		$date = date('y-m-d');; //dummy
 		$bookid = $this->input->post('book-id'); 
 
-		$sql = "INSERT INTO review (book_id, user_id, date, content) VALUES ('$bookid','$user_id','$date','$content')";
-		$this->db->query($sql);
+		$this->m_review->addReview($bookid, $user_id, $date, $content);
 		
 		redirect(base_url(). 'elibrary/index.php/dashboard');
 
@@ -48,6 +48,6 @@ class Books extends CI_Controller {
 	public function pinjam(){
 		$user_id = $this->session->userdata('user_id');		
 		$book_id = $this -> input -> post('book_id_pinjam');
-		$this->m_data->pinjam($user_id, $book_id);
+		$this->m_books->pinjam($user_id, $book_id);
 	}
 }
