@@ -50,6 +50,7 @@
 				if(isset($user)){
 					if($b->quantity > 0){
 					echo "<form action='books/pinjam' method='post'>";
+					echo "<input type='hidden' name='book_id_pinjam' value='" . $b->book_id . "'/>"; 
 					echo "<input type='submit' name='pinjam' value='Pinjam'>";
 					echo "</form>";
 				} else {

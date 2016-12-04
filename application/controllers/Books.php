@@ -31,20 +31,23 @@ class Books extends CI_Controller {
 	}
 
 	public function review(){
+		$this->load->library('session');
 		$content = $this -> input -> post('content');
-		$user = $this->session->flashdata('userdata');
-		$userId = $user['user_id'];
-		$date = "2016-11-10" ; //dummy
+		$user_id = $this->session->userdata('user_id');
+		
+		$date = date('y-m-d');; //dummy
 		$bookid = $this->input->post('book-id'); 
 
-		$sql = "INSERT INTO review (book_id, user_id, date, content) VALUES ('$bookid','1','$date','$content')";
+		$sql = "INSERT INTO review (book_id, user_id, date, content) VALUES ('$bookid','$user_id','$date','$content')";
 		$this->db->query($sql);
 		
-		//redirect(base_url(). 'elibrary/index.php/dashboard');
+		redirect(base_url(). 'elibrary/index.php/dashboard');
 
 	}
 
 	public function pinjam(){
-		
+		$user_id = $this->session->userdata('user_id');		
+		$book_id = $this -> input -> post('book_id_pinjam');
+		$this->m_data->pinjam($user_id, $book_id);
 	}
 }

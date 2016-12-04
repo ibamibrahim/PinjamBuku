@@ -33,15 +33,17 @@ class Login extends CI_Controller {
 			$uname = $user->username;
 			$pass = $user->password;
 			$role = $user->role;
+			$user_id = $user->user_id;
 
 			$userdata = array(
+				'user_id' => $user_id,
 				'username' => $uname,
 				'password' => $pass,
 				'role' => $role);
 
 			if($uname == $username && $password == $password){
 				$isLoggedIn = true;
-				$this->session->set_flashdata('userdata', $userdata);
+				$this->session->set_userdata($userdata);
 				redirect(base_url(). 'elibrary/index.php/dashboard');
 				break;
 			}

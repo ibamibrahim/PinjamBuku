@@ -30,5 +30,17 @@
 
 			return $query;
 		}
+
+		function getUserId($username){
+			$sql = "SELECT user_id from user WHERE username = '$username'";
+			$query = $this->db->query($sql);
+
+			return $query;
+		}
+
+		function pinjam($user_id, $book_id){
+			$sql = "INSERT INTO Loan (book_id, user_id) VALUES ('$book_id', '$user_id');";
+			$query = $this->db->query($sql);
+		}
 	}
 ?>

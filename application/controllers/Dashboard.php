@@ -19,7 +19,7 @@ class Dashboard extends CI_Controller {
 	public function index()
 	{
 		$this->load->library('session');
-		$data['user'] = $this->session->flashdata('userdata');
+		$data['user'] = $this->session->userdata();
 		$data['book'] = $this->m_data->getAllBooks()->result();
 		$this->load->view('v_dashboard', $data);
 	}

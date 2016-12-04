@@ -9,6 +9,7 @@
 			<input type="password" name="username" id="paswordInput" placeholder="password">
 			<input type="submit" name="submit" id="submitButton" value="Login">
 		</form>
+		<a href="dashboard">Skip Login</a>
 		<?php 
 			if(isset($loggedIn)){
 				if(!$loggedIn){
