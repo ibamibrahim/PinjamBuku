@@ -44,7 +44,7 @@ class Login extends CI_Controller {
 			if($uname == $username && $password == $password){
 				$isLoggedIn = true;
 				$this->session->set_userdata($userdata);
-				redirect(base_url(). 'elibrary/index.php/dashboard');
+				redirect(base_url(). 'PPWE_1/index.php/dashboard');
 				break;
 			}
 		}

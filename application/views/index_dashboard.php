@@ -1,13 +1,12 @@
 <?php 
-	session_start();
-	$loggedIn = false;//isset($_SESSION['user']);
+	
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="src/css/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href=" <?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
         <style>
         body{
             background-color: #eeeeee;

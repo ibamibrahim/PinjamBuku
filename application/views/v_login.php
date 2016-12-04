@@ -47,8 +47,8 @@
 <!DOCTYPE html>
 <html>	
 	<head>
-		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap/dist/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/style/loginStyle.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style/loginStyle.css">
 		<title>
 			Login
 		</title>
@@ -65,7 +65,7 @@
 		        <div class="col-md-offset-5 col-md-4">
 		            <div class="form-login">
 		            	<h4>Login Perpustakaan</h4>
-            			<form action="<?php echo base_url(). 'elibrary/index.php/login/login'; ?>" method="post">
+            			<form action="<?php echo base_url(). 'PPWE_1/index.php/login/login'; ?>" method="post">
 			            	<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" name="username" />
 			            	</br>
 			            	<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" name="password" />
