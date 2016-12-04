@@ -47,8 +47,8 @@
 <!DOCTYPE html>
 <html>	
 	<head>
-		<link rel="stylesheet" type="text/css" href="src/css/bootstrap/dist/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="src/css/style/loginStyle.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style/loginStyle.css">
 		<title>
 			Login
 		</title>
@@ -65,18 +65,20 @@
 		        <div class="col-md-offset-5 col-md-4">
 		            <div class="form-login">
 		            	<h4>Login Perpustakaan</h4>
-		            	<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" />
-		            	</br>
-		            	<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
-		            	</br>
-		            	<div class="wrapper">
-		            		<span class="group-btn">     
-		                		<a href="#" class="btn btn-primary btn-md"> Login </a>
-		            		</span>
-		            		<span class="group-btn">     
-		                		<a href="#" class="btn btn-primary btn-md"> Melihat Buku</a>
-		            		</span>
-		            	</div>
+            			<form action="<?php echo base_url(). 'PPWE_1/index.php/login/login'; ?>" method="post">
+			            	<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" name="username" />
+			            	</br>
+			            	<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" name="password" />
+			            	</br>
+			            	<div class="wrapper">
+			            		<span class="group-btn">
+	            					<input type="submit"  class="btn btn-primary btn-md name="submit" id="submitButton" value="Login">
+			            		</span>
+			            		<span class="group-btn">     
+			                		<a href="index.php/dashboard" class="btn btn-primary btn-md"> Melihat Buku</a>
+			            		</span>
+			            	</div>
+		            	</form>
 		            </div>
 		        </div>
 		    </div>
