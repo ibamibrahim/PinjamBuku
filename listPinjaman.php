@@ -1,6 +1,6 @@
 <?php 
+    $loggedIn = false;//isset($_SESSION['user']);
 	session_start();
-	$loggedIn = false;//isset($_SESSION['user']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,7 +57,7 @@
         }
         .book-cover {
             width: 100%;
-            height: 285px;
+            height: auto;
         }
         .book-desc {
             padding-left: 10px;
@@ -77,28 +77,19 @@
 					<div class="navbar-header">
       					<a class="navbar-brand" href="#">PinjamBuku</a>
     				</div>
-                    <?php 
-    					if($loggedIn) {
-    						echo '<div class="navbar-nav navbar-right">
-    							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Nama User <span class="caret"></span></a>
-        						<ul class="dropdown-menu">
-          						    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>
-          						    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-        						</ul></div>';
-    					} else {
-    						echo '<form class="navbar-form navbar-right" action="index.php" method="post">
-      							   <div class="form-group">
-        						      <input type="text" class="form-control" name="username" placeholder="Username">
-        						      <input type="password" class="form-control" name="password" placeholder="Password">
-        						      <input type="hidden" name="command" value="login">
-      							   </div>
-      							   <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Log in</button>
-    							</form>';
-    					}
-    				?> 
+                    <div class="navbar-nav navbar-right">
+    					<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Nama User <span class="caret"></span></a>
+        				<ul class="dropdown-menu">
+          				    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>
+          					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+        				</ul>
+                    </div>'
 				</div>
 			</nav>
 		</div>
+        <div>
+            <h3>Pinjaman Anda</h3>
+        </div>
         <?php
             $book1 = array('id'=>1, 'imgurl' => 'src/images/dummy.png', 'judul' => 'dummy', 'pengarang' => 'anonymous');
             $book2 = array('id'=>2, 'imgurl' => 'src/images/dummy1.jpg', 'judul' => 'catching fire', 'pengarang' => 'suzanne collins');
@@ -115,15 +106,15 @@
                             <img src="'.$books[$i]['imgurl'].'" alt="" class="book-cover">
                         </div>
                         <div class="book-desc">
-                            <div class="pull-left">
+                            <div>
                                 <h4>'.$books[$i]['judul'].'</h4>
                                 <p>'.$books[$i]['pengarang'].'</p>
                             </div>
-                            <div class="pull-right button-pinjam">
+                            <div class="button-pinjam">
                                 <form action="index.php" method="post">
                                     <input type="hidden" name="command" value="pinjam">
                                     <input type="hidden" name="book" value="'.$books[$i]['id'].'">
-                                    <button type="submit" class="btn btn-primary btn-sm">Pinjam</button>
+                                    <button type="submit" class="btn btn-success btn-sm">Kembalikan</button>
                                 </form>
                             </div>
                         </div>

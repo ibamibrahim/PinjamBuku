@@ -1,6 +1,5 @@
 <?php 
 	session_start();
-	$loggedIn = true;//isset($_SESSION['user']);
 ?>
 <html>
 	<head>
