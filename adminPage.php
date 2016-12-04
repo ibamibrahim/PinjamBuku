@@ -8,10 +8,10 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="src/css/bootstrap/dist/css/bootstrap.css">
     <style type="text/css">
-    #title{
-      text-align: center;
-      padding: 30px;
-    }
+      #title{
+        text-align: center;
+        padding: 50px;
+      }
     </style>
 	</head>
   	<body>
@@ -24,7 +24,7 @@
                 <?php 
                 if($loggedIn) {
                   echo '<div class="navbar-nav navbar-right">
-                    <a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Nama User <span class="caret"></span></a>
+                    <a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Admin <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                             <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>
                             <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
@@ -44,52 +44,9 @@
         </nav>
       </div>
       <div class="container" id="title">
-        <h1>This is Title</h1>
-      </div>
-      <div class="rows">
-        <div class="col-xs-1"></div>
-        <div class="col-xs-2 pull-left" id="book-cover">
-          <div class="container">
-            <img src="src/images/dummy.png" alt="none" width='300px' height='400px'>
-          </div>
-        </div>
-        <div class="col-xs-1"></div>
-        <div class="col-xs-8" id="book-desc">
-          <div class="container">
-            <p>Judul Buku</p>
-            <div id="judulBuku">
-              dummy
-            </div>
-            <p>Penulis</p>
-            <div id="penulis">
-              anonymous
-            </div>
-            <p>Penerbit</p>
-            <div id="penerbit">
-              anonymous
-            </div>
-            <p>Deskripsi</p>
-            <div id="deskripsi">
-              undescriptive
-            </div>
-            <p>Jumlah Buku</p>
-            <div id="jumlahBuku">
-              undefined
-            </div>
-            <p>Review  </p>
-            <div id="daftarReview">
-              <div id="namaReviewer">
-                anonymous
-              </div>
-              <div id="tanggalReview">
-                classified
-              </div>
-              <div id="review">
-              </div>
-            </div>
-          </div>
-        </div>
+        <h1>Input Buku Baru</h1>
       </div>
      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-	<body>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</body>	
 </html>

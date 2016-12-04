@@ -77,8 +77,6 @@
 					<div class="navbar-header">
       					<a class="navbar-brand" href="#">PinjamBuku</a>
     				</div>
-    				
-    				
                     <?php 
     					if($loggedIn) {
     						echo '<div class="navbar-nav navbar-right">
