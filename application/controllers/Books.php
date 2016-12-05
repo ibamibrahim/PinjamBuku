@@ -15,6 +15,8 @@ class Books extends CI_Controller {
 		//load session
 		$this->load->library('session');
 
+		$this->load->helper('form');
+
 	}
 
 	public function index()
@@ -49,5 +51,32 @@ class Books extends CI_Controller {
 		$user_id = $this->session->userdata('user_id');		
 		$book_id = $this -> input -> post('book_id_pinjam');
 		$this->m_books->pinjam($user_id, $book_id);
+	}
+
+	public function add_book(){
+		// taken from https://www.codeigniter.com/userguide3/libraries/file_uploading.html
+		$config['upload_path']          = base_url().'uploads/';
+        $config['allowed_types']        = 'gif|jpg|png';
+        /*$config['max_size']             = 100;
+        $config['max_width']            = 1024;
+        $config['max_height']           = 768;
+		*/
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+
+        if ( ! $this->upload->do_upload('image'))
+        {
+                $error = array('error' => $this->upload->display_errors());
+
+                $this->load->view('v_add_books', $error);
+        }
+        else
+        {
+                $data = array('upload_data' => $this->upload->data());
+
+                $this->load->view('v_add_books_success', $data);
+        }
 	}
 }

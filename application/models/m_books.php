@@ -1,12 +1,12 @@
 <?php 
 
 	class m_books extends CI_Model {
-		function getAllBooks(){
+		function getAllBooks(){ 
 			return $this->db->get('book');
 		}
 
 		function getBook($id){
-			$sql = "SELECT * FROM Book B WHERE B.book_id = '$id' ";
+			$sql = "SELECT * FROM Book B WHERE B.book_id = '$id'";
 			$query  = $this->db->query($sql);
 
 			return $query;
@@ -17,5 +17,4 @@
 			$query = $this->db->query($sql);
 		}
 	}
-
 ?>

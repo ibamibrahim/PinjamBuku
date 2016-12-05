@@ -13,6 +13,8 @@ class Dashboard extends CI_Controller {
 
 		//load session
 		$this->load->library('session');
+		$this->load->helper('form');
+
 
 	}
 
