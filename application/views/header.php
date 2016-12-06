@@ -1,3 +1,6 @@
+<?php 
+    $logged_in = null !== $this->session->userdata();
+?>
 <div id="nav">
 			<nav class="navbar navbar-default navbar-fixed-top shadow-1">
 				<div class="container-fluid">
@@ -12,9 +15,9 @@
                 ?>">PinjamBuku</a>
     				</div>
                     <?php 
-    					if(false) {
+    					if($logged_in) {
     						echo '<div class="navbar-nav navbar-right">
-    							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Nama User <span class="caret"></span></a>
+    							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>'.$this->session->userdata('username').'<span class="caret"></span></a>
         						<ul class="dropdown-menu">
           						    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>
           						    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>

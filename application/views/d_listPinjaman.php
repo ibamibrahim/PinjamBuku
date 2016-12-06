@@ -1,5 +1,5 @@
 <?php 
-    $loggedIn = false;//isset($_SESSION['user']);
+    $logged_in = isset($this->session->userdata());
 ?>
 <!DOCTYPE html>
 <html>
