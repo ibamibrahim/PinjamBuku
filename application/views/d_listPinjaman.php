@@ -1,5 +1,5 @@
 <?php 
-	
+    $loggedIn = false;//isset($_SESSION['user']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -56,51 +56,66 @@
         }
         .book-cover {
             width: 100%;
-            height: 285px;
+            height: auto;
         }
         .book-desc {
-            padding: 10px;
+            padding-left: 10px;
+            padding-right: 5px;
+            overflow: hidden;
             background-color: #fdfdfd;
+        }
+        .button-pinjam {
+            margin:5px;
         }
         </style>
 	</head>
 	<body>
-        <?php $this->load->view('header');?>
+		<div id="nav">
+			<nav class="navbar navbar-default navbar-fixed-top shadow-1">
+				<div class="container-fluid">
+					<div class="navbar-header">
+      					<a class="navbar-brand" href="#">PinjamBuku</a>
+    				</div>
+                    <div class="navbar-nav navbar-right">
+    					<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Nama User <span class="caret"></span></a>
+        				<ul class="dropdown-menu">
+          				    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>
+          					<li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+        				</ul>
+                    </div>'
+				</div>
+			</nav>
+		</div>
+        <div>
+            <h3>Pinjaman Anda</h3>
+        </div>
         <?php
+            $book1 = array('id'=>1, 'imgurl' => 'src/images/dummy.png', 'judul' => 'dummy', 'pengarang' => 'anonymous');
+            $book2 = array('id'=>2, 'imgurl' => 'src/images/dummy1.jpg', 'judul' => 'catching fire', 'pengarang' => 'suzanne collins');
+            $book3 = array('id'=>3, 'imgurl' => 'src/images/dummy2.jpg', 'judul' => 'The Rights of Nature', 'pengarang' => 'bla bla');
+            $book4 = array('id'=>4, 'imgurl' => 'src/images/dummy3.jpg', 'judul' => 'a \'cute\' leukimia', 'pengarang' => 'rodney curtnis');
+            $book5 = array('id'=>5, 'imgurl' => 'src/images/dummy4.jpg', 'judul' => 'sharpe\'s siege', 'pengarang' => 'bernard cornwell');
+            $books = array($book1,$book2,$book3,$book4,$book5,$book3,$book2,$book1);
             echo '<div class="container-fluid" id= "content">';
-            $counter = 0;
-            foreach ($book as $b){
-                if(strlen($b->title) > 20) {
-                    $judul = substr($b->title, 0, 17) . "...";
-                } else {
-                    $judul = $b->title;
-                }
+            for ($i = 0; $i < count($books); $i++){
                 echo '
                 <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
                     <div class="book-card shadow-2 shadow">
                         <div>
-                            <a href="books/details/'.$b->book_id.'"> <img src="'.$b->img_path.'" alt="" class="book-cover"></a>
+                            <img src="'.$books[$i]['imgurl'].'" alt="" class="book-cover">
                         </div>
                         <div class="book-desc">
                             <div>
-                                <h4>'.$judul.'</h4>
-                                <p>'.$b->author.'</p>
+                                <h4>'.$books[$i]['judul'].'</h4>
+                                <p>'.$books[$i]['pengarang'].'</p>
                             </div>
-                            <div class="button-pinjam">';
-                               if(isset($user)){
-                                if($b->quantity > 0){
-                                echo '<form action="books/pinjam" method="post">
-                                    <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
-                                    <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.' buku lagi</button>
-                                </form>';
-                                } else {
-                                  echo '<form action="books/pinjam" method="post">
-                                    <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
-                                    <input type="submit" class="btn btn-primary btn-sm" value="Stock habis" disabled>
-                                </form>';
-                                }
-                            }
-                            echo '</div>
+                            <div class="button-pinjam">
+                                <form action="index.php" method="post">
+                                    <input type="hidden" name="command" value="pinjam">
+                                    <input type="hidden" name="book" value="'.$books[$i]['id'].'">
+                                    <button type="submit" class="btn btn-success btn-sm">Kembalikan</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>';
