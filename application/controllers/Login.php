@@ -18,10 +18,13 @@ class Login extends CI_Controller {
 	}
 
 	public function index()
-	{
-		$this->load->view('v_login');
-	}
-
+    {
+        if ($this->session->has_userdata('username')) {
+            redirect(base_url(). 'PPWE_1/index.php/dashboard');
+        } else {
+            $this->load->view('v_login');
+        }
+    }
 	public function login(){
 		$username = $this -> input -> post('username');
 		$password = $this -> input -> post('password');

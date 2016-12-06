@@ -4,13 +4,19 @@
 					<div class="navbar-header">
       					<a class="navbar-brand" href="#">PinjamBuku</a>
     				</div>
-                    <?php 
-    					if(false) {
+                    <?php
+                    $this->load->library('session');
+                    $isLoggedIn = $this->session->has_userdata('username');
+    					if($isLoggedIn) {
+    					    $username = $this->session->userdata('username');
     						echo '<div class="navbar-nav navbar-right">
-    							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Nama User <span class="caret"></span></a>
+    							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp'.$username.'<span class="caret"></span></a>
         						<ul class="dropdown-menu">
-          						    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>
-          						    <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+          						    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';
+          					     if($username == 'admin'){
+                                     echo ' <li><a href="dashboard/add_book"><span class="glyphicon glyphicon-plus"></span>Tambahkan buku</a></li>';
+                                 }
+                                echo '<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
         						</ul></div>';
     					} else {
     						echo '<form class="navbar-form navbar-right" action="index.php" method="post">
