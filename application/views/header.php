@@ -2,7 +2,14 @@
 			<nav class="navbar navbar-default navbar-fixed-top shadow-1">
 				<div class="container-fluid">
 					<div class="navbar-header">
-      					<a class="navbar-brand" href="#">PinjamBuku</a>
+      					<a class="navbar-brand" href="<?php 
+                  echo base_url();
+                  if(false) {
+                    echo 'PPWE_1/index.php/dashboard';
+                  } else {
+                    echo 'PPWE_1/index.php/login';
+                  }
+                ?>">PinjamBuku</a>
     				</div>
                     <?php 
     					if(false) {
