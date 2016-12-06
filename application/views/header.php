@@ -19,13 +19,13 @@
                                 echo '<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
         						</ul></div>';
     					} else {
-    						echo '<form class="navbar-form navbar-right" action="index.php" method="post">
+    						echo '<form class="navbar-form navbar-right" action="' . base_url(). 'PPWE_1/index.php/login/login" method="post">
       							   <div class="form-group">
-        						      <input type="text" class="form-control" name="username" placeholder="Username">
-        						      <input type="password" class="form-control" name="password" placeholder="Password">
+        						      <input type="text" class="form-control" name="username" placeholder="Username" required oninvalid="this.setCustomValidity(\'Username tidak boleh kosong\')"/>
+        						      <input type="password" class="form-control" name="password" placeholder="Password"  placeholder="password" name="password" required oninvalid="this.setCustomValidity(\'Password tidak boleh kosong\')"/>
         						      <input type="hidden" name="command" value="login">
       							   </div>
-      							   <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> Log in</button>
+      							   <button type="submit" class="btn btn-primary" value="Login"><span class="glyphicon glyphicon-log-in"></span> Log in</button>
     							</form>';
     					}
     				?> 

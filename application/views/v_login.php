@@ -32,7 +32,7 @@
 	            					<input type="submit"  class="btn btn-primary btn-md name="submit" id="submitButton" value="Login">
 			            		</span>
 			            		<span class="group-btn">     
-			                		<a href="dashboard" class="btn btn-primary btn-md"> Melihat Buku</a>
+			                		<a href="index.php/dashboard" class="btn btn-primary btn-md"> Melihat Buku</a>
 			            		</span>
 			            	</div>
 		            	</form>
