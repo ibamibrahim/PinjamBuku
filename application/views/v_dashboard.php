@@ -70,10 +70,17 @@
             echo '<div class="container-fluid" id= "content">';
             $counter = 0;
             foreach ($book as $b){
+
                 if(strlen($b->title) > 20) {
                     $judul = substr($b->title, 0, 17) . "...";
                 } else {
                     $judul = $b->title;
+                }
+
+                if(strlen($b->author) > 25) {
+                    $penulis = substr($b->author, 0, 22) . "...";
+                } else {
+                    $penulis = $b->author;
                 }
                 echo '
                 <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
@@ -84,7 +91,7 @@
                         <div class="book-desc">
                             <div>
                                 <h4>'.$judul.'</h4>
-                                <p>'.$b->author.'</p>
+                                <p>'.$penulis.'</p>
                             </div>
                             <div class="button-pinjam">';
                                if(isset($user)){
