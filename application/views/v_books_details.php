@@ -1,4 +1,6 @@
-
+<?php 
+    $logged_in = null !== $this->session->userdata('role');
+?>
 <html>
 	<head>
 		<title>PinjamBuku</title>
@@ -63,9 +65,6 @@
     	padding-bottom: 2px;
     	font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
     }
-    #deskripsi{
-    	width: 75%;
-    }
     </style>
 	</head>
   	<body>
@@ -94,13 +93,7 @@
         </div>
         <div class="col-xs-1"></div>
         <div class="col-xs-8" id="book-desc">
-          <div class="container">
-          	<div class="subtitle">
-          		<p>Judul Buku</p>
-          	</div>
-            <div id="judulBuku">
-              <?php echo $title ?>
-            </div>
+          <div>
             <div class="subtitle">
           		<p>Penulis</p>
           	</div>
@@ -116,7 +109,7 @@
             <div class="subtitle">
           		<p>Deskripsi</p>
           	</div>
-            <div id="deskripsi" >
+            <div>
               <?php echo $desc ?>
             </div>
             <div class="subtitle">
@@ -125,6 +118,15 @@
             <div id="jumlahBuku">
               <?php echo $quantity ?>
             </div>
+            	<!-- Disini rencananya mau buat tombol pinjam yang di hidden kalo misalnya usernya belum login -->
+            	<?php 
+    				if($logged_in) {
+    				echo '
+    					<br>
+    					<input type="submit" value="Pinjam" name="submit-review" class="btn btn-primary">
+    					';
+    				}
+            	?>
           </div>
         </div>
       </div>
@@ -163,7 +165,7 @@
                   <div class="col-sm-7">
                     <div class="panel panel-default">
                         <form action="<?php echo base_url(). 'PPWE_1/index.php/books/review'; ?>" method="post">
-                        <textarea class="form-control col" cols="50" name="content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
+                        <textarea class="form-control" cols="50" name="content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
                         <input type="hidden" name="book-id" value=
                         <?php 
                           foreach ($bookdetail as $b) { 
@@ -175,7 +177,7 @@
                   </div>
                   <div class="row">
                     <div class="col-xs-7"></div>
-                    <input type="hidden" name="book_id_review" value="<?php echo $b->book_id ?>">;
+                    <input type="hidden" name="book_id_review" value="<?php echo $b->book_id ?>">
                     <input type="submit" value="Review" name="submit-review" class="btn btn-primary">
                   </div>
                 </div>

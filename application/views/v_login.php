@@ -1,45 +1,3 @@
-<?php
-	function connectDB() {
-		$servername = "localhost";
-		$username = "root";
-		$password = "";
-		$dbname = "tugasAkhir";
-		
-		// Create connection
-		$conn = mysqli_connect($servername, $username, $password, $dbname);
-		
-		// Check connection
-		if (!$conn) {
-			die("Connection failed: " + mysqli_connect_error());
-		}
-		return $conn;
-	}
-
-	function login(){
-        $conn = connectDB();
-
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $sql = "SELECT id, username, password, fullname, email, role FROM user";
-        $result = mysqli_query($conn, $sql);
-        if($result){
-
-        }
-        else {
-            die("Error: $sql");
-        }
-
-        foreach ($result as $value) {
-            if($value['username']==$username && $value['password']==$password) {
-                if($value['role'] == 'admin'){
-                    header("Location: admin.php");
-                }
-            }
-        }
-    }
-
-?>
 <!DOCTYPE html>
 <html>	
 	<head>
@@ -63,7 +21,7 @@
 		            		LOGIN PERPUSTAKAAN
 		            	</div>
             			<form action="<?php echo base_url(). 'PPWE_1/index.php/login/login'; ?>" method="post">
-			            	<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" name="username" />
+			            	<input type="text" pattern="^[_A-z0-9]{1,}$" id="userName" class="form-control input-sm chat-input" placeholder="username" name="username" />
 			            	</br>
 			            	<input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" name="password" />
 			            	</br>
@@ -72,7 +30,7 @@
 	            					<input type="submit"  class="btn btn-primary btn-md name="submit" id="submitButton" value="Login">
 			            		</span>
 			            		<span class="group-btn">     
-			                		<a href="index.php/dashboard" class="btn btn-primary btn-md"> Melihat Buku</a>
+			                		<a href="<?php echo base_url();?>PPWE_1/index.php/dashboard" class="btn btn-primary btn-md"> Melihat Buku</a>
 			            		</span>
 			            	</div>
 		            	</form>
@@ -80,5 +38,8 @@
 		        </div>
 		    </div>
 		</div>
+		<script>
+			
+		</script>
 	</body>
 </html>

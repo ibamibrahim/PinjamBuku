@@ -16,6 +16,10 @@
 	    	src: url('https://fonts.googleapis.com/css?family=Maitree');
 		}
 
+		body{
+			font-family: monospace;
+		}
+
       h1{
         text-align: center;
         padding: 50px;
