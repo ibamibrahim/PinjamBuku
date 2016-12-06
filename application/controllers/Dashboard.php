@@ -26,11 +26,12 @@ class Dashboard extends CI_Controller {
 		$this->load->view('v_dashboard', $data);
 	}
 
-	public function addBooks(){
+	public function add_book(){
 		$this->load->library('session');
 		$data['user'] = $this->session->userdata();
 		$this->load->view('v_add_books', $data);
         }
+        
 	public function admin(){
 		$this->load->view('v_admin');
 	}

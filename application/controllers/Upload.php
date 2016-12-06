@@ -13,15 +13,18 @@ class Upload extends CI_Controller {
                 $this->load->view('v_add_books', array('error' => ' ' ));
         }
 
+        public function test(){
+                echo "test";
+        }
+
         public function do_upload()
         {
-                $config['upload_path']          = './uploads/';
+                $config['upload_path']          = 'data/book_image';
                 $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 100;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
+                $config['max_size']             = 10000;
 
                 $this->load->library('upload', $config);
+                $this->upload->initialize($config);
 
                 if ( ! $this->upload->do_upload('userfile'))
                 {
@@ -29,7 +32,7 @@ class Upload extends CI_Controller {
 
                         $this->load->view('v_add_books', $error);
                 }
-                
+
                 else
                 {
                         $data = array('upload_data' => $this->upload->data());

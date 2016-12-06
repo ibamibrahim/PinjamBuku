@@ -54,29 +54,55 @@ class Books extends CI_Controller {
 	}
 
 	public function add_book(){
-		// taken from https://www.codeigniter.com/userguide3/libraries/file_uploading.html
-		$config['upload_path']          = base_url().'uploads/';
+		$config['upload_path']          = 'data/book_image';
         $config['allowed_types']        = 'gif|jpg|png';
-        /*$config['max_size']             = 100;
-        $config['max_width']            = 1024;
-        $config['max_height']           = 768;
-		*/
+        $config['max_size']             = 10000;
 
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
 
+		$title = $this -> input -> post('judul');
+		$author = $this -> input -> post('penulis');
+		$publisher = $this -> input -> post('penerbit');
+		$description = $this -> input -> post('deskripsi');
+		$quantity = $this -> input -> post('jumlah');
+		$added_book_title = $this->m_books->getAllJudul()->result();
 
-        if ( ! $this->upload->do_upload('image'))
+        if ( ! $this->upload->do_upload('book_image'))
         {
-                $error = array('error' => $this->upload->display_errors());
+        		//upload error; 
 
-                $this->load->view('v_add_books', $error);
+                $error = array('error' => $this->upload->display_errors());
+                echo $error['error'];
+                
+
+                //$this->load->view('v_add_books', $error);
         }
+
         else
         {
                 $data = array('upload_data' => $this->upload->data());
+                $file_name = $data['upload_data']['file_name'];
+                $img_path = base_urL() . "PPWE_1/data/book_image/" . $file_name;
+                $udahAda = false;
+                foreach ($added_book_title as $key => $b) {
+                	$existed_title = $b->title;
+                	if($existed_title == $title){
+                		// udah ada
+                		$book_id = $b->book_id;
+                		$this->m_books->addQuantityToBook($book_id, $quantity);
+                		$udahAda = true;
+                		break;
+                	} 
 
-                $this->load->view('v_add_books_success', $data);
+                }
+            	if(!$udahAda){
+                		$this->m_books->addNewBook($img_path, $title, $author, $publisher, $description, $quantity);
+                	}
+                //$this->load->view('upload_success', $data);
         }
+	
+
+		// taken from https://www.codeigniter.com/userguide3/libraries/file_uploading.html
 	}
 }

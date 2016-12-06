@@ -5,7 +5,7 @@
       					<a class="navbar-brand" href="#">PinjamBuku</a>
     				</div>
                     <?php 
-    					if(true) {
+    					if(false) {
     						echo '<div class="navbar-nav navbar-right">
     							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Nama User <span class="caret"></span></a>
         						<ul class="dropdown-menu">
