@@ -1,8 +1,18 @@
+@font-face {
+      font-family: nevis;
+      src: url('Fonts/nevis.ttf');
+}
+@font-face {
+      font-family: maitree;
+      src: url('https://fonts.googleapis.com/css?family=Maitree');
+}
 body {
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
   background: url('../../images/perpus.jpg') no-repeat center fixed;
   background-size:cover;
+  font-size: 16px;
+  font-family: monospace;
 }
 
 .container {
@@ -45,9 +55,12 @@ h1{
   height: auto;
 }
 
-#title{
+#subtitle{
   text-align: center;
-  padding: 30px;
+  padding: 10px;
+  font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
+  font-size: 24px;
+  font-weight: bold;
 }
 
 #book-desc{

@@ -3,7 +3,7 @@
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.min.css">
     <style type="text/css">
     #title{
       text-align: center;

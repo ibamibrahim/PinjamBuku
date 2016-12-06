@@ -5,6 +5,26 @@
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
     <style type="text/css">
+    @font-face {
+    	font-family: nevis;
+    	src: url('Fonts/nevis.ttf');
+	}
+	@font-face {
+        font-family: maitree;
+        src: url('https://fonts.googleapis.com/css?family=Maitree');
+	}
+
+	h1
+	{
+  		font-family: nevis;
+  		font-size: 42px;
+  		font-weight: bold;
+	}
+
+	body{
+		font-family: monospace;
+	}
+
     #title{
       text-align: center;
       padding: 30px;
@@ -37,6 +57,15 @@
       border-right-color:#ddd;
       border-width:8px;
     }
+
+    .subtitle{
+    	font-size: 24px;
+    	padding-bottom: 2px;
+    	font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
+    }
+    #deskripsi{
+    	width: 75%;
+    }
     </style>
 	</head>
   	<body>
@@ -66,23 +95,33 @@
         <div class="col-xs-1"></div>
         <div class="col-xs-8" id="book-desc">
           <div class="container">
-            <p>Judul Buku</p>
+          	<div class="subtitle">
+          		<p>Judul Buku</p>
+          	</div>
             <div id="judulBuku">
               <?php echo $title ?>
             </div>
-            <p>Penulis</p>
+            <div class="subtitle">
+          		<p>Penulis</p>
+          	</div>
             <div id="penulis">
               <?php echo $author ?>
             </div>
-            <p>Penerbit</p>
+            <div class="subtitle">
+          		<p>Penerbit</p>
+          	</div>
             <div id="penerbit">
               <?php echo $publisher ?>
             </div>
-            <p>Deskripsi</p>
-            <div id="deskripsi">
+            <div class="subtitle">
+          		<p>Deskripsi</p>
+          	</div>
+            <div id="deskripsi" >
               <?php echo $desc ?>
             </div>
-            <p>Jumlah Buku</p>
+            <div class="subtitle">
+          		<p>Jumlah Buku yang tersedia</p>
+          	</div>
             <div id="jumlahBuku">
               <?php echo $quantity ?>
             </div>
@@ -91,7 +130,7 @@
       </div>
             <div class="container">
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 subtitle" >
                   <h3>Review</h3>
                 </div>
               </div>

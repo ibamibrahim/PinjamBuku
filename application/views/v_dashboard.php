@@ -7,10 +7,24 @@
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
-        <style>
+        <style type="text/css">
+        @font-face {
+            font-family: nevis;
+            src: url('Fonts/nevis.ttf');
+        }
+        @font-face {
+            font-family: maitree;
+            src: url('https://fonts.googleapis.com/css?family=Maitree');
+        }
         body{
             background-color: #eeeeee;
             padding-top: 60px;
+            font-family: monospace;
+            font-weight: bold;
+
+        }
+        h4{
+            font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
         }
         /*
         .shadow:hover {
@@ -67,6 +81,7 @@
         .button-pinjam {
             margin:5px;
         }
+
         </style>
 	</head>
 	<body>

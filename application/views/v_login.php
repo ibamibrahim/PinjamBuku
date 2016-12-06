@@ -38,10 +38,6 @@
             }
         }
     }
-    
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-       
-    }
 
 ?>
 <!DOCTYPE html>
@@ -52,7 +48,6 @@
 		<title>
 			Login
 		</title>
-		
 	</head>
 	<body>
 		<div class="container">
@@ -64,7 +59,9 @@
 		    <br>
 		        <div class="col-md-offset-5 col-md-4">
 		            <div class="form-login">
-		            	<h4>Login Perpustakaan</h4>
+		            	<div id="subtitle">
+		            		LOGIN PERPUSTAKAAN
+		            	</div>
             			<form action="<?php echo base_url(). 'PPWE_1/index.php/login/login'; ?>" method="post">
 			            	<input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" name="username" />
 			            	</br>

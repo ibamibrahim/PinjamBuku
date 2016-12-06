@@ -4,12 +4,30 @@
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.min.css">
     <style type="text/css">
-      #title{
+	    @font-face {
+	    	font-family: nevis;
+	    	src: url('Fonts/nevis.ttf');
+		}
+
+		@font-face {
+	    	font-family: monospace;
+	    	src: url('https://fonts.googleapis.com/css?family=Maitree');
+		}
+
+      h1{
         text-align: center;
         padding: 50px;
+        font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
+        font-size: 42px;
+		font-weight: bold;
       }
+      .subtitle{
+		padding: 10px;
+		font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
+		font-size: 24px;
+	  }
     </style>
 	</head>
   	<body>
@@ -53,7 +71,7 @@
           <form>
               <div class="row">
               	<div class="col-xs-4"></div>
-              	<div class="col-xs-4">
+              	<div class="col-xs-4 subtitle">
 	            	<label>Judul Buku</label>
               	</div>
               </div>
@@ -65,7 +83,7 @@
               </div>
               <div class="row">
               	<div class="col-xs-4"></div>
-              	<div class="col-xs-4">
+              	<div class="col-xs-4 subtitle">
 	            	<label>Penulis</label>
               	</div>
               </div>
@@ -77,7 +95,7 @@
               </div>
               <div class="row">
               	<div class="col-xs-4"></div>
-              	<div class="col-xs-4">
+              	<div class="col-xs-4 subtitle">
 	            	<label>Penerbit</label>
               	</div>
               </div>
@@ -89,7 +107,7 @@
               </div>
               <div class="row">
               	<div class="col-xs-4"></div>
-              	<div class="col-xs-4">
+              	<div class="col-xs-4 subtitle">
 	            	<label>Deskripsi</label>
               	</div>
               </div>
@@ -101,7 +119,7 @@
               </div>
               <div class="row">
               	<div class="col-xs-4"></div>
-              	<div class="col-xs-4">
+              	<div class="col-xs-4 subtitle">
 	            	<label>Jumlah Buku</label>
               	</div>
               </div>
