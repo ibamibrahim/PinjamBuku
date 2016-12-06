@@ -43,7 +43,7 @@ class Books extends CI_Controller {
 
 		$this->m_review->addReview($bookid, $user_id, $date, $content);
 		
-		redirect(base_url(). 'elibrary/index.php/dashboard');
+		redirect(base_url(). 'PPWE_1/index.php/books/details/'.$bookid);
 
 	}
 
