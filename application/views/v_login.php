@@ -2,6 +2,7 @@
 <html>	
 	<head>
 		<link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa:700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/login-style.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
@@ -12,6 +13,11 @@
 			#lanjut {
 				text-align: center;
 			}
+		body{
+            padding-top: 40px;
+            font-family: 'Reem Kufi', sans-serif;
+
+        }
 		</style>
 	</head>
 	<body>

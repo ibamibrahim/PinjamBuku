@@ -6,6 +6,7 @@
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
     <style type="text/css">
@@ -14,6 +15,13 @@
     	src: url('Fonts/nevis.ttf');
 	}
 
+        body{
+            padding-top: 60px;
+            font-family: 'Reem Kufi', sans-serif;
+
+        }
+
+
 	h1
 	{
   		font-family: nevis;
@@ -21,9 +29,6 @@
   		font-weight: bold;
 	}
 
-	body{
-		font-family: monospace;
-	}
 
     #title{
       text-align: center;
@@ -61,7 +66,7 @@
     .subtitle{
       margin-bottom: 0px;
     	font-size: 1.5em;
-    	font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
+    	font-family: 'nevis'; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
     }
     </style>
 	</head>
@@ -79,7 +84,7 @@
         }
       ?>
       <div class="container" id="title">
-        <h1><?php echo $title ?></h1>
+        <h1 class="title"><?php echo $title ?></h1>
       </div>
       <div class="rows">
         <div class="col-xs-1"></div>
