@@ -15,15 +15,12 @@
 			}
 		body{
             padding-top: 40px;
-            font-family: 'Reem Kufi', sans-serif;
-
         }
 		</style>
 	</head>
 	<body>
 		<div class="container">
 		    <div class="row">
-		    <br>
 		    <br>
 		    <br>
 		    <br>

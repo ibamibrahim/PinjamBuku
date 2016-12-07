@@ -13,8 +13,6 @@
     <style type="text/css">
         body{
             padding-top: 60px;
-            font-family: 'Reem Kufi', sans-serif;
-
         }
         #content{
             padding-right: 50px;

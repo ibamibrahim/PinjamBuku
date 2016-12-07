@@ -11,10 +11,8 @@
     <style type="text/css">
        body{
             padding-top: 60px;
-            font-family: 'Reem Kufi', sans-serif;
-
         }
-      
+
       #title{
         text-align: center;
         padding: 50px;

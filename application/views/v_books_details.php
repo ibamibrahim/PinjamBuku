@@ -17,8 +17,6 @@
 
         body{
             padding-top: 60px;
-            font-family: 'Reem Kufi', sans-serif;
-
         }
 
 
@@ -109,6 +107,10 @@
               <?php echo $desc ?>
             </div>
             <br>
+            <div>
+              <p>Jumlah buku tersedia : <?php echo $quantity ?></p>
+            </div>
+            <br>
               <?php
               $isSudahDipinjam = false;
               foreach($loaned_book as $book){
@@ -135,7 +137,7 @@
                               echo '<form action="' . base_url() . 'PPWE_1/index.php/books/pinjam" method="post">
                                     <input type="hidden" name="book_id_pinjam" value="' . $b->book_id . '">
                                     <input type="hidden" name="page" value="page-details">
-                                    <button type="submit" class="btn btn-primary btn-md" value="Pinjam">Pinjam <span class="badge">' . $b->quantity . '</span></button>
+                                    <button type="submit" class="btn btn-primary btn-md" value="Pinjam">Pinjam</button>
                                 </form>';
                           }
                       } else {
