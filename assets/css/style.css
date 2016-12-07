@@ -8,6 +8,7 @@ body {
 	font-family: 'Aref Ruqaa', serif; 
 }
 
-a:hover {
+a:hover, a:visited, a:link, a:active, a {
 	text-decoration: none;
+	color: black;
 }
