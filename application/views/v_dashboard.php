@@ -22,19 +22,22 @@
         }
         /*shadow adapted from https://codepen.io/sdthornton/pen/wBZdXq*/
         .book-grid {
-            padding: 10px;
             height: 450px;
-        }
-        .book-card {
-            padding: 0px;
-        }
-        .book-cover {
-            width: 100%;
-            height: 285px;
+            margin-top: 10px;
         }
         .book-desc {
             padding: 10px;
             background-color: #f3f3f3;
+            height: 450px;
+            text-align: justify;
+        }
+        .book-cover {
+            height: 450px;
+            width: auto;
+        }
+
+        .button-pinjam {
+            bottom: 5px;
         }
         </style>
 	</head>
@@ -44,30 +47,26 @@
             echo '<div class="container-fluid" id= "content">';
             $counter = 0;
             foreach ($book as $b){
-
-                if(strlen($b->title) > 20) {
-                    $judul = substr($b->title, 0, 17) . "...";
+                if(strlen($b->description) > 300) {
+                    $desc = substr($b->description, 0, 297) . "...";
                 } else {
-                    $judul = $b->title;
-                }
-
-                if(strlen($b->author) > 25) {
-                    $penulis = substr($b->author, 0, 22) . "...";
-                } else {
-                    $penulis = $b->author;
+                    $desc = $b->description;
                 }
                 echo '
-                <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
-                    <div class="book-card shadow-2 shadow">
+                <div class="col-sm-4 book-grid">
+                    <div class="row">
                         <a href="books/details/'.$b->book_id.'">
-                        <div>
+                        <div class="col-sm-6 pull-left">
                              <img src="'.$b->img_path.'" alt="" class="book-cover">
                         </div>
-                        <div class="book-desc">
+                        <div class="book-desc col-sm-6" pull-right>
                             <div>
-                                <h4>'.$judul.'</h4>
-                                <p>'.$penulis.'</p>
+                                <h4 class="title">'.$b->title.'</h4>
+                                <h5>'.$b->author.'</h5><br>
+                                <p>'.$desc.'<p>
+                                <p> Jumlah buku tersedia: '.$b->quantity.'</p>
                             </div>
+                            
                             <div class="button-pinjam">';
                             $isSudahDipinjam = false;
                             foreach($loaned_book as $book){
