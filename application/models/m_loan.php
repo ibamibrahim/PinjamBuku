@@ -10,5 +10,10 @@
             $query = $this->db->query($sql);
             return $query;
         }
+		function getLoanedBookData($user_id){
+		    $sql = "SELECT * From Loan L, Book B WHERE L.user_id = '$user_id' AND L.book_id = B.book_id;";
+            $query = $this->db->query($sql);
+            return $query;
+        }
 	}
 ?>

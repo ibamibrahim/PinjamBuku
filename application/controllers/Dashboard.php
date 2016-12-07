@@ -34,8 +34,10 @@ class Dashboard extends CI_Controller {
 		$data['user'] = $this->session->userdata();
 		$this->load->view('v_add_books', $data);
         }
-        
-	public function admin(){
-		$this->load->view('v_admin');
-	}
+
+	public function pinjaman(){
+        $user_id = $this->session->userdata('user_id');
+        $data['loaned_book'] = $this->m_loan->getLoanedBookData($user_id)->result();
+        $this->load->view('v_list_pinjaman', $data);
+    }
 }

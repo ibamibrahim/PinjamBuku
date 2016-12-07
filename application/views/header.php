@@ -18,11 +18,11 @@
     						echo '<div class="navbar-nav">
     							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>'.$this->session->userdata('username').'<span class="caret"></span></a>
         						<ul class="dropdown-menu">
-          						    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';
+          						    <li><a href="'.base_url().'PPWE_1/index.php/dashboard/pinjaman"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';
           					     if($username == 'admin'){
-                                     echo ' <li><a href="dashboard/add_book"><span class="glyphicon glyphicon-plus"></span>Tambahkan buku</a></li>';
+                                     echo ' <li><a href="'.base_url().'PPWE_1/index.php/dashboard/add_book"><span class="glyphicon glyphicon-plus"></span>Tambahkan buku</a></li>';
                                  }
-                                echo '<li><a href="logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                                echo '<li><a href="'.base_url().'PPWE_1/index.php/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
         						</ul></div>';
     					} else {
     						echo '<form class="navbar-form" action="' . base_url(). 'PPWE_1/index.php/login/login" method="post">

@@ -57,8 +57,10 @@ class Books extends CI_Controller {
         $page = $this->input->post('page');
         if($page == 'dashboard'){
             redirect(base_url().'PPWE_1/index.php/dashboard');
-        } else {
+        } else if ($page == 'page-details'){
             redirect(base_url().'PPWE_1/index.php/books/details/'.$book_id);
+        } else {
+            redirect(base_url().'PPWE_1/index.php/dashboard/pinjaman');
         }
 	}
 
@@ -69,8 +71,10 @@ class Books extends CI_Controller {
         $page = $this->input->post('page');
         if($page == 'dashboard'){
             redirect(base_url().'PPWE_1/index.php/dashboard');
-        } else {
+        } else if ($page == 'page-details'){
             redirect(base_url().'PPWE_1/index.php/books/details/'.$book_id);
+        } else {
+            redirect(base_url().'PPWE_1/index.php/dashboard/pinjaman');
         }
 	}
 

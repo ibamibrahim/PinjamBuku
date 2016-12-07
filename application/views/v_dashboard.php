@@ -65,12 +65,15 @@
                                 <p>'.$penulis.'</p>
                             </div>
                             <div class="button-pinjam">';
+                            $isSudahDipinjam = false;
+                            foreach($loaned_book as $book){
+                                if($book->book_id == $b->book_id){$isSudahDipinjam = true;}
+                            }
                             $isLoggedIn = $this->session->has_userdata('username');
                                if($isLoggedIn){
                                 if($b->quantity > 0){
-                                    $isSudahDipinjam = false;
                                     foreach($loaned_book as $book){
-                                        if($book->book_id == $b->book_id) {
+                                        if($isSudahDipinjam) {
                                             //buku udah dipinjem
                                             echo '<form action="books/kembalikan" method="post">
                                     <input type="hidden" name="loan_id" value="' .$book->loan_id .'">
@@ -78,7 +81,6 @@
                                     <input type="hidden" name="book_id_kembalikan" value="'.$b->book_id.'">
                                     <button type="submit" class="btn btn-danger btn-sm" value="Kembalikan">Kembalikan</button>
                                 </form>';
-                                            $isSudahDipinjam = true;
                                             break;
                                         }
                                     }
@@ -90,10 +92,20 @@
                                 </form>';
                                     }
                                 } else {
-                                  echo '<form action="books/pinjam" method="post">
+                                    if($isSudahDipinjam){
+                                        echo '<form action="books/kembalikan" method="post">
+                                    <input type="hidden" name="loan_id" value="' .$book->loan_id .'">
+                                    <input type="hidden" name="page" value="dashboard">
+                                    <input type="hidden" name="book_id_kembalikan" value="'.$b->book_id.'">
+                                    <button type="submit" class="btn btn-danger btn-sm" value="Kembalikan">Kembalikan</button>
+                                </form>';
+                                    } else {
+                                        echo '<form action="books/pinjam" method="post">
                                     <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
                                     <input type="submit" class="btn btn-primary btn-sm" value="Stock habis" disabled>
                                 </form>';
+                                    }
+
                                 }
                             } else {
                                 echo '<form action="login" method="post"><button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Login untuk meminjam</button></form>';

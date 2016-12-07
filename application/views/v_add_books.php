@@ -14,24 +14,9 @@
     </style>
 	</head>
   	<body>
-    <?php if(isset($error)){echo $error;}?>
-  		<div id="nav">
-        <nav class="navbar navbar-default navbar-fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-header">
-                  <a class="navbar-brand" href="#">PinjamBuku</a>
-            </div>
-                <?php 
-                  echo '<div class="navbar-nav navbar-right">
-                    <a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Admin <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                            <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-                      </ul></div>';
-                ?> 
-          </div>
-        </nav>
-      </div>
+    <?php if(isset($error)){echo $error;}
+        $this->load->view('header');
+    ?>
       <div class="container" id="title">
         <h1>Input Buku Baru</h1>
       </div>

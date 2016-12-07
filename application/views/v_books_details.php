@@ -115,40 +115,51 @@
               <?php echo $quantity ?>
             </div>
               <?php
-
+              $isSudahDipinjam = false;
+              foreach($loaned_book as $book){
+                  if($book->book_id == $b->book_id){$isSudahDipinjam = true;}
+              }
               $isLoggedIn = $this->session->has_userdata('username');
               if($isLoggedIn){
-                  if($quantity > 0){
-                      $isSudahDipinjam = false;
+                  if($b->quantity > 0){
                       foreach($loaned_book as $book){
-                          if($book_id == $book->book_id) {
-                            //buku udah dipinjem
+                          if($isSudahDipinjam) {
+                              //buku udah dipinjem
                               echo '<form action="'.base_url().'PPWE_1/index.php/books/kembalikan" method="post">
-                                <input type="hidden" name="loan_id" value="' .$book->loan_id .'">
-                                <input type="hidden" name="book_id_kembalikan" value="'.$book_id.'">
-                                <input type="hidden" name="page" value="page-details">
-                                <button type="submit" class="btn btn-danger btn-sm" value="Kembalikan">Kembalikan</button>
-                            </form>';
-                              $isSudahDipinjam = true;
+                                    <input type="hidden" name="loan_id" value="' .$book->loan_id .'">
+                                    <input type="hidden" name="page" value="page-details">
+                                    <input type="hidden" name="book_id_kembalikan" value="'.$b->book_id.'">
+                                    <button type="submit" class="btn btn-danger btn-sm" value="Kembalikan">Kembalikan</button>
+                                </form>';
                               break;
                           }
                       }
                       if(!$isSudahDipinjam){
-                      echo '<form action="'.base_url().'PPWE_1/index.php/books/pinjam" method="post">
-                      <input type="hidden" name="book_id_pinjam" value="'.$book_id.'">
-                      <input type="hidden" name="page" value="page-details">
-                      <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.'buku lagi</button>
-                      </form>';
+                          echo '<form action="'.base_url().'PPWE_1/index.php/books/pinjam" method="post">
+                                    <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
+                                    <input type="hidden" name="page" value="page-details">
+                                    <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.'buku lagi</button>
+                                </form>';
                       }
                   } else {
-                    echo '<form action="books/pinjam" method="post">
-                    <input type="hidden" name="book_id_pinjam" value="'.$book_id.'">
-                    <input type="submit" class="btn btn-primary btn-sm" value="Stock habis" disabled>
-                    </form>';
+                      if($isSudahDipinjam){
+                          echo '<form action="'.base_url().'PPWE_1/index.php/books/kembalikan" method="post">
+                                    <input type="hidden" name="loan_id" value="' .$book->loan_id .'">
+                                    <input type="hidden" name="page" value="page-details">
+                                    <input type="hidden" name="book_id_kembalikan" value="'.$b->book_id.'">
+                                    <button type="submit" class="btn btn-danger btn-sm" value="Kembalikan">Kembalikan</button>
+                                </form>';
+                      } else {
+                          echo '<form action="'.base_url().'PPWE_1/index.php/books/pinjam" method="post">
+                                    <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
+                                    <input type="submit" class="btn btn-primary btn-sm" value="Stock habis" disabled>
+                                </form>';
+                      }
+
                   }
-                  } else {
-                        echo '<form action="'.base_url().'PPWE_1/index.php/" method="post"><button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Login untuk      meminjam</button></form>';
-                  }
+              } else {
+                  echo '<form action="login" method="post"><button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Login untuk meminjam</button></form>';
+              }
 
               ?>
           </div>
@@ -180,26 +191,21 @@
               ?>
             <div id="review">
                 <?php if($isLoggedIn){
-                } else {
-                    echo "<form action=\"'.base_url().'PPWE_1/index.php/\" method=\"post\"><button type=\"submit\" class=\"btn btn-primary btn-sm\" value=\"Pinjam\">Login untuk mereview</button></form>";
-                }
-                ?>
-                <div class="row">
+                echo '   <div class="row">
                   <div class="col-sm-1">
                     <div class="thumbnail">
-                      <img class="img-responsive user-photo" src="<?php echo base_url()?>/PPWE_1/assets/images/dummy.png">
+                      <img class="img-responsive user-photo" src="'.base_url().'/PPWE_1/assets/images/dummy.png">
                     </div>
                   </div>
                   <div class="col-sm-7">
                     <div class="panel panel-default">
-                        <form action="<?php echo base_url(). 'PPWE_1/index.php/books/review'; ?>" method="post">
+                        <form action="' . base_url(). 'PPWE_1/index.php/books/review" method="post">
                         <textarea class="form-control" cols="50" name="content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
-                        <input type="hidden" name="book-id" value=
-                        <?php
-                          foreach ($bookdetail as $b) { 
-                            echo "'" . $b->book_id . "'"; 
-                          } 
-                        ?>>
+                        <input type="hidden" name="book-id" value="';
+                        foreach ($bookdetail as $b) {
+                            echo $b->book_id;
+                        }
+                        echo '">
                       </div>
                     </div>
                   </div>
@@ -207,7 +213,12 @@
                     <div class="col-xs-7"></div>
                     <input type="hidden" name="book_id_review" value="<?php echo $b->book_id ?>">
                     <input type="submit" value="Review" name="submit-review" class="btn btn-primary">
-                  </div>
+                  </div>';
+                } else {
+                    echo "<form action='".base_url()."PPWE_1/index.php' method='post'><button type='submit' class='btn btn-primary btn-sm'>Login untuk mereview</button></form>";
+                }
+                ?>
+
                 </div>
             </div>
             </div>
