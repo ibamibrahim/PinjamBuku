@@ -5,12 +5,15 @@
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
     <style type="text/css">
     @font-face {
     	font-family: nevis;
     	src: url('Fonts/nevis.ttf');
+	}
+	@font-face {
+        font-family: maitree;
+        src: url('https://fonts.googleapis.com/css?family=Maitree');
 	}
 
 	h1
@@ -66,6 +69,7 @@
 	</head>
   	<body>
       <?php $this->load->view('header');?>
+      </div>
       <?php 
         foreach ($bookdetail as $key => $b) {
           $book_id = $b->book_id;
@@ -84,7 +88,7 @@
         <div class="col-xs-1"></div>
         <div class="col-xs-2 pull-left" id="book-cover">
           <div class="container">
-            <img src="<?php echo $img_path?>" class="img-responsive" alt="none" width='300px' height='400px'>
+            <img src="<?php echo base_url()?>/PPWE_1/assets/images/dummy.png" class="img-responsive" alt="none" width='300px' height='400px'>
           </div>
         </div>
         <div class="col-xs-1"></div>
@@ -114,43 +118,15 @@
             <div id="jumlahBuku">
               <?php echo $quantity ?>
             </div>
-              <?php
-
-              $isLoggedIn = $this->session->has_userdata('username');
-              if($isLoggedIn){
-                  if($quantity > 0){
-                      $isSudahDipinjam = false;
-                      foreach($loaned_book as $book){
-                          if($book_id == $book->book_id) {
-                            //buku udah dipinjem
-                              echo '<form action="'.base_url().'PPWE_1/index.php/books/kembalikan" method="post">
-                                <input type="hidden" name="loan_id" value="' .$book->loan_id .'">
-                                <input type="hidden" name="book_id_kembalikan" value="'.$book_id.'">
-                                <input type="hidden" name="page" value="page-details">
-                                <button type="submit" class="btn btn-danger btn-sm" value="Kembalikan">Kembalikan</button>
-                            </form>';
-                              $isSudahDipinjam = true;
-                              break;
-                          }
-                      }
-                      if(!$isSudahDipinjam){
-                      echo '<form action="'.base_url().'PPWE_1/index.php/books/pinjam" method="post">
-                      <input type="hidden" name="book_id_pinjam" value="'.$book_id.'">
-                      <input type="hidden" name="page" value="page-details">
-                      <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.'buku lagi</button>
-                      </form>';
-                      }
-                  } else {
-                    echo '<form action="books/pinjam" method="post">
-                    <input type="hidden" name="book_id_pinjam" value="'.$book_id.'">
-                    <input type="submit" class="btn btn-primary btn-sm" value="Stock habis" disabled>
-                    </form>';
-                  }
-                  } else {
-                        echo '<form action="'.base_url().'PPWE_1/index.php/" method="post"><button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Login untuk      meminjam</button></form>';
-                  }
-
-              ?>
+            	<!-- Disini rencananya mau buat tombol pinjam yang di hidden kalo misalnya usernya belum login -->
+            	<?php 
+    				if($logged_in) {
+    				echo '
+    					<br>
+    					<input type="submit" value="Pinjam" name="submit-review" class="btn btn-primary">
+    					';
+    				}
+            	?>
           </div>
         </div>
       </div>
@@ -160,7 +136,8 @@
                   <h3>Review</h3>
                 </div>
               </div>
-              <?php
+              <?php 
+
                 foreach ($review as $key => $r) {
                   echo ' <div class="row">
                 <div class="col-sm-1">
@@ -179,11 +156,6 @@
 
               ?>
             <div id="review">
-                <?php if($isLoggedIn){
-                } else {
-                    echo "<form action=\"'.base_url().'PPWE_1/index.php/\" method=\"post\"><button type=\"submit\" class=\"btn btn-primary btn-sm\" value=\"Pinjam\">Login untuk mereview</button></form>";
-                }
-                ?>
                 <div class="row">
                   <div class="col-sm-1">
                     <div class="thumbnail">
@@ -192,14 +164,42 @@
                   </div>
                   <div class="col-sm-7">
                     <div class="panel panel-default">
-                        <form action="<?php echo base_url(). 'PPWE_1/index.php/books/review'; ?>" method="post">
-                        <textarea class="form-control" cols="50" name="content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
+                        <form id="username" action="<?php echo base_url(). 'PPWE_1/index.php/books/review'; ?>" method="post">
+                        <textarea id="comment" class="form-control" cols="50" name="content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
                         <input type="hidden" name="book-id" value=
-                        <?php
+                        <?php 
                           foreach ($bookdetail as $b) { 
                             echo "'" . $b->book_id . "'"; 
                           } 
                         ?>>
+                        <script type="text/javascript">
+                          function post()
+                          {
+                            var comment = document.getElementById("comment").value;
+                            var name = document.getElementById("username").value;
+                            if(comment && name)
+                            {
+                              $.ajax
+                              ({
+                                type: 'post',
+                                url: '.php',
+                                data: 
+                                {
+                                  user_comm:comment,
+                                  user_name:name
+                                },
+                                success: function (response) 
+                                {
+                                  document.getElementById("all_comments").innerHTML=response+document.getElementById("all_comments").innerHTML;
+                                  document.getElementById("comment").value="";
+                                  document.getElementById("username").value="";
+                                }
+                              });
+                            }
+                            
+                            return false;
+                          }
+                        </script>
                       </div>
                     </div>
                   </div>
@@ -211,7 +211,6 @@
                 </div>
             </div>
             </div>
-     <script src="<?php echo base_url();?>PPWE_1/assets/js/jquery-3.1.1.min.js"></script>
-     <script src="<?php echo base_url();?>PPWE_1/assets/js/bootstrap.min.js"></script>
-	</body>
+     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+	<body>
 </html>

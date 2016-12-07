@@ -6,56 +6,13 @@
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
         <style type="text/css">
-        @font-face {
-            font-family: nevis;
-            src: url('Fonts/nevis.ttf');
-        }
-        @font-face {
-            font-family: maitree;
-            src: url('https://fonts.googleapis.com/css?family=Maitree');
-        }
         body{
-            background-color: #eeeeee;
             padding-top: 60px;
-            font-family: monospace;
-            font-weight: bold;
 
         }
-        h4{
-            font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
-        }
-        /*
-        .shadow:hover {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-        }
-
-        .shadow-1 {
-            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-            transition: all 0.5s cubic-bezier(.25,.8,.25,1);
-        }
-
-        .shadow-2 {
-            box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-            transition: all 0.5s cubic-bezier(.25,.8,.25,1);
-        }
-
-        .shadow-3 {
-            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-            transition: all 0.5s cubic-bezier(.25,.8,.25,1);
-        }
-
-        .shadow-4 {
-            box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-            transition: all 0.5s cubic-bezier(.25,.8,.25,1);
-        }
-
-        .shadow-5 {
-            box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-            transition: all 0.5s cubic-bezier(.25,.8,.25,1);
-        }
-        */
         #content{
             padding-right: 50px;
             padding-left: 50px;
@@ -74,7 +31,7 @@
         }
         .book-desc {
             padding: 10px;
-            background-color: #fdfdfd;
+            background-color: #ff6700;
         }
         </style>
 	</head>
@@ -148,8 +105,8 @@
             }
             echo '</div>';
         ?>
-		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="<?php echo base_url();?>PPWE_1/assets/js/jquery-3.1.1.min.js"></script>
+        <script src="<?php echo base_url();?>PPWE_1/assets/js/bootstrap.min.js"></script>
         <script type="text/javascript">
             document.getElementByClassName("book-cover").css("height", document.getElementByClassName(".book-cover").css("width") * 1.5);
         </script>

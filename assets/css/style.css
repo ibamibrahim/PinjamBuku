@@ -1,0 +1,10 @@
+@font-face {
+      font-family: nevis;
+      src: url('../fonts/nevis.ttf');
+}
+
+body {
+  	font-family: sans-serif;
+	background-color: #3a6ea5;
+  -webkit-font-smoothing: antialiased;
+}

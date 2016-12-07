@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>	
 	<head>
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style/loginStyle.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/login-style.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
 		<title>
 			Login
 		</title>
@@ -38,8 +39,7 @@
 		        </div>
 		    </div>
 		</div>
-		<script>
-			
-		</script>
+		<script src="<?php echo base_url();?>PPWE_1/assets/js/jquery-3.1.1.min.js"></script>
+     <script src="<?php echo base_url();?>PPWE_1/assets/js/bootstrap.min.js"></script>
 	</body>
 </html>
