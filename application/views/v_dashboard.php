@@ -7,10 +7,24 @@
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
-        <style>
+        <style type="text/css">
+        @font-face {
+            font-family: nevis;
+            src: url('Fonts/nevis.ttf');
+        }
+        @font-face {
+            font-family: maitree;
+            src: url('https://fonts.googleapis.com/css?family=Maitree');
+        }
         body{
             background-color: #eeeeee;
             padding-top: 60px;
+            font-family: monospace;
+            font-weight: bold;
+
+        }
+        h4{
+            font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
         }
         /*
         .shadow:hover {
@@ -59,13 +73,8 @@
             height: 285px;
         }
         .book-desc {
-            padding-left: 10px;
-            padding-right: 5px;
-            overflow: hidden;
+            padding: 10px;
             background-color: #fdfdfd;
-        }
-        .button-pinjam {
-            margin:5px;
         }
         </style>
 	</head>
@@ -75,6 +84,18 @@
             echo '<div class="container-fluid" id= "content">';
             $counter = 0;
             foreach ($book as $b){
+
+                if(strlen($b->title) > 20) {
+                    $judul = substr($b->title, 0, 17) . "...";
+                } else {
+                    $judul = $b->title;
+                }
+
+                if(strlen($b->author) > 25) {
+                    $penulis = substr($b->author, 0, 22) . "...";
+                } else {
+                    $penulis = $b->author;
+                }
                 echo '
                 <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
                     <div class="book-card shadow-2 shadow">
@@ -82,11 +103,11 @@
                             <a href="books/details/'.$b->book_id.'"> <img src="'.$b->img_path.'" alt="" class="book-cover"></a>
                         </div>
                         <div class="book-desc">
-                            <div class="pull-left">
-                                <h4>'.$b->title.'</h4>
-                                <p>'.$b->author.'</p>
+                            <div>
+                                <h4>'.$judul.'</h4>
+                                <p>'.$penulis.'</p>
                             </div>
-                            <div class="pull-right button-pinjam">';
+                            <div class="button-pinjam">';
                             $isLoggedIn = $this->session->has_userdata('username');
                                if($isLoggedIn){
                                 if($b->quantity > 0){

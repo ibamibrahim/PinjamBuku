@@ -1,10 +1,32 @@
-
+<?php 
+    $logged_in = null !== $this->session->userdata('role');
+?>
 <html>
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
     <style type="text/css">
+    @font-face {
+    	font-family: nevis;
+    	src: url('Fonts/nevis.ttf');
+	}
+	@font-face {
+        font-family: maitree;
+        src: url('https://fonts.googleapis.com/css?family=Maitree');
+	}
+
+	h1
+	{
+  		font-family: nevis;
+  		font-size: 42px;
+  		font-weight: bold;
+	}
+
+	body{
+		font-family: monospace;
+	}
+
     #title{
       text-align: center;
       padding: 30px;
@@ -37,11 +59,16 @@
       border-right-color:#ddd;
       border-width:8px;
     }
+
+    .subtitle{
+    	font-size: 24px;
+    	padding-bottom: 2px;
+    	font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
+    }
     </style>
 	</head>
   	<body>
       <?php $this->load->view('header');?>
-      </div>
       <?php 
         foreach ($bookdetail as $key => $b) {
           $book_id = $b->book_id;
@@ -65,24 +92,28 @@
         </div>
         <div class="col-xs-1"></div>
         <div class="col-xs-8" id="book-desc">
-          <div class="container">
-            <p>Judul Buku</p>
-            <div id="judulBuku">
-              <?php echo $title ?>
-            </div>
-            <p>Penulis</p>
+          <div>
+            <div class="subtitle">
+          		<p>Penulis</p>
+          	</div>
             <div id="penulis">
               <?php echo $author ?>
             </div>
-            <p>Penerbit</p>
+            <div class="subtitle">
+          		<p>Penerbit</p>
+          	</div>
             <div id="penerbit">
               <?php echo $publisher ?>
             </div>
-            <p>Deskripsi</p>
-            <div id="deskripsi">
+            <div class="subtitle">
+          		<p>Deskripsi</p>
+          	</div>
+            <div>
               <?php echo $desc ?>
             </div>
-            <p>Jumlah Buku</p>
+            <div class="subtitle">
+          		<p>Jumlah Buku yang tersedia</p>
+          	</div>
             <div id="jumlahBuku">
               <?php echo $quantity ?>
             </div>
@@ -128,7 +159,7 @@
       </div>
             <div class="container">
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 subtitle" >
                   <h3>Review</h3>
                 </div>
               </div>
@@ -166,7 +197,7 @@
                   <div class="col-sm-7">
                     <div class="panel panel-default">
                         <form action="<?php echo base_url(). 'PPWE_1/index.php/books/review'; ?>" method="post">
-                        <textarea class="form-control col" cols="50" name="content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
+                        <textarea class="form-control" cols="50" name="content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
                         <input type="hidden" name="book-id" value=
                         <?php
                           foreach ($bookdetail as $b) { 
@@ -178,12 +209,12 @@
                   </div>
                   <div class="row">
                     <div class="col-xs-7"></div>
-                    <input type="hidden" name="book_id_review" value="<?php echo $b->book_id ?>">;
+                    <input type="hidden" name="book_id_review" value="<?php echo $b->book_id ?>">
                     <input type="submit" value="Review" name="submit-review" class="btn btn-primary">
                   </div>
                 </div>
             </div>
             </div>
      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-	<body>
+	</body>
 </html>

@@ -10,7 +10,11 @@
     					if($isLoggedIn) {
     					    $username = $this->session->userdata('username');
     						echo '<div class="navbar-nav navbar-right">
-    							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>&nbsp&nbsp'.$username.'<span class="caret"></span></a>
+    				</div>
+                    <?php 
+    					if($logged_in) {
+    						echo "<div class="navbar-nav navbar-right">
+    							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>'.$this->session->userdata('username').'<span class="caret"></span></a>
         						<ul class="dropdown-menu">
           						    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';
           					     if($username == 'admin'){
@@ -28,7 +32,7 @@
       							   <button type="submit" class="btn btn-primary" value="Login"><span class="glyphicon glyphicon-log-in"></span> Log in</button>
     							</form>';
     					}
-    				?> 
+    				?>
 				</div>
 			</nav>
 		</div>
