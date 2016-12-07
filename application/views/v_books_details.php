@@ -5,7 +5,7 @@
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
     <style type="text/css">
     @font-face {
     	font-family: nevis;
@@ -183,7 +183,6 @@
               ?>
             <div id="review">
                 <?php if($isLoggedIn){
-                    echo "mantap";
                 } else {
                     echo "<form action=\"'.base_url().'PPWE_1/index.php/\" method=\"post\"><button type=\"submit\" class=\"btn btn-primary btn-sm\" value=\"Pinjam\">Login untuk mereview</button></form>";
                 }

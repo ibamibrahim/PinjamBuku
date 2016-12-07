@@ -1,6 +1,7 @@
 <html>
 <head>
 <title>Upload Form</title>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
 </head>
 <body>
 
