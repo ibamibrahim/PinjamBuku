@@ -6,14 +6,16 @@
     color: #052B4F;
   }
   #logo {
-    padding: 0;
+    margin-left: 3px;
+    margin-top: -10px;
+    padding: 0px;
   }
 </style>
 <div id="nav">
 			<nav class="navbar navbar-default navbar-fixed-top shadow-1">
 				<div class="container-fluid">
 					<div class="navbar-header">
-      					<a class="navbar-brand" href="<?php echo base_url().'PPWE_1/index.php'; ?>"><img id="logo" src="<?php echo base_url().'PPWE_1/assets/images/logo.svg'; ?>" height="70" width="70" alt="logo">PinjamBuku</a>
+      					<a class="navbar-brand" href="<?php echo base_url().'PPWE_1/index.php'; ?>"><img id="logo" class="brand navbar-brand" src="<?php echo base_url().'PPWE_1/assets/images/logo.svg'; ?>" alt="logo">PinjamBuku</a>
     				</div>
               <?php
                 $this->load->library('session');

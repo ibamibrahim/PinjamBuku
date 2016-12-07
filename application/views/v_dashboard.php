@@ -22,7 +22,7 @@
             position: relative; 
             width: 100%
             height auto;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             padding-left: 5px;
             padding-right: 5px;
             z-index: 1;
@@ -41,8 +41,16 @@
             display : none;
         }
         
+        @keyframes to-left {
+            from {width: 0;}
+            to {width: 70%;}
+        }
+
         .book-grid:hover .book-desc {
             display: block;
+            animation-name: to-left;
+
+            animation-duration: 1s;
         }
 
         .book-grid .book-desc {
