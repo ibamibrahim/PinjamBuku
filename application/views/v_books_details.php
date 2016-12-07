@@ -68,7 +68,7 @@
     }
     </style>
 	</head>
-  	<body>
+  	<div>
       <?php $this->load->view('header');?>
       <?php 
         foreach ($bookdetail as $key => $b) {
@@ -170,26 +170,8 @@
                   <h3>Review</h3>
                 </div>
               </div>
-              <div id="new-review"></div>
-              <?php
-                foreach ($review as $key => $r) {
-                  echo ' <div class="row">
-                <div class="col-sm-1">
-                  <div class="thumbnail">
-                    <img class="img-responsive user-photo" src="' . base_url() .'/PPWE_1/assets/images/dummy.png">
-                  </div>
-                </div>';
-                  echo ' <div class="col-sm-7">
-                  <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <strong>' . $r->username . '</strong> <span class="text-muted"> commented on ' . $r->date . '</span></div>';
-
-                  echo '<div class="panel-body">' . $r->content . '</div></div></div></div>';
-                }
-
-              ?>
-            <div id="review">
-                <?php
+                <div id="review">
+                    <?php
                     $user_id = $this->session->userdata('user_id');
                     if ($isLoggedIn) {
                         echo '   <div class="row">
@@ -218,11 +200,28 @@
                     } else {
                         echo "<form action='" . base_url() . "PPWE_1/index.php/login' method='post'><button type='submit' class='btn btn-primary btn-sm'>Login untuk mereview</button></form>";
                     }
-                ?>
+                    ?>
 
                 </div>
-            </div>
-            </div>
+              <div id="new-review"><br></div>
+              <?php
+                foreach ($review as $key => $r) {
+                  echo ' <div class="row">
+                <div class="col-sm-1">
+                  <div class="thumbnail">
+                    <img class="img-responsive user-photo" src="' . base_url() .'/PPWE_1/assets/images/dummy.png">
+                  </div>
+                </div>';
+                  echo ' <div class="col-sm-7">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <strong>' . $r->username . '</strong> <span class="text-muted"> commented on ' . $r->date . '</span></div>';
+
+                  echo '<div class="panel-body">' . $r->content . '</div></div></div></div>';
+                }
+
+              ?>
+            </div></div>
      <script src="<?php echo base_url();?>PPWE_1/assets/js/jquery-3.1.1.min.js"></script>
      <script src="<?php echo base_url();?>PPWE_1/assets/js/bootstrap.min.js"></script>
     <script>
