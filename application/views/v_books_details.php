@@ -158,7 +158,7 @@
 
                   }
               } else {
-                  echo '<form action="login" method="post"><button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Login untuk meminjam</button></form>';
+                  echo '<form action="'.base_url().'PPWE_1/index.php/login" method="post"><button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Login untuk meminjam</button></form>';
               }
 
               ?>
@@ -215,7 +215,7 @@
                     <input type="submit" value="Review" name="submit-review" class="btn btn-primary">
                   </div>';
                 } else {
-                    echo "<form action='".base_url()."PPWE_1/index.php' method='post'><button type='submit' class='btn btn-primary btn-sm'>Login untuk mereview</button></form>";
+                    echo "<form action='".base_url()."PPWE_1/index.php/login' method='post'><button type='submit' class='btn btn-primary btn-sm'>Login untuk mereview</button></form>";
                 }
                 ?>
 
