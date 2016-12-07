@@ -38,13 +38,14 @@
             top: 0;
             right: 0;
             z-index: 3;
+            display : none;
         }
         
-        .book-cover:hover + .book-desc {
+        .book-grid:hover .book-desc {
             display: block;
         }
 
-        .book-cover + .book-desc {
+        .book-grid .book-desc {
             display: none;
         }
 

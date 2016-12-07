@@ -1,13 +1,19 @@
 <style>
-   .navbar-default{
+  .navbar-default{
     background-color: rgba(255,255,255,0.87);
+  }
+  * {
+    color: #052B4F;
+  }
+  #logo {
+    padding: 0;
   }
 </style>
 <div id="nav">
 			<nav class="navbar navbar-default navbar-fixed-top shadow-1">
 				<div class="container-fluid">
 					<div class="navbar-header">
-      					<a class="navbar-brand" href="<?php echo base_url().'PPWE_1/index.php'; ?>">PinjamBuku</a>
+      					<a class="navbar-brand" href="<?php echo base_url().'PPWE_1/index.php'; ?>"><img id="logo" src="<?php echo base_url().'PPWE_1/assets/images/logo.svg'; ?>" height="70" width="70" alt="logo">PinjamBuku</a>
     				</div>
               <?php
                 $this->load->library('session');
@@ -18,9 +24,10 @@
                   $role = $this->session->userdata('role');
     						echo '<div class="navbar-nav">
     							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>  '.$this->session->userdata('username').'  <span class="caret"></span></a>
-        						<ul class="dropdown-menu">
-          						    <li><a href="'.base_url().'PPWE_1/index.php/dashboard/pinjaman"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';
-          					     if($role == 'admin'){
+        						<ul class="dropdown-menu">';
+                         if($role == 'user'){
+          						    echo'<li><a href="'.base_url().'PPWE_1/index.php/dashboard/pinjaman"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';}
+                          else if($role == 'admin'){
                                      echo ' <li><a href="'.base_url().'PPWE_1/index.php/dashboard/add_book"><span class="glyphicon glyphicon-plus"></span>Tambahkan buku</a></li>';
                                  }
                                 echo '<li role="separator" class="divider"></li>';
