@@ -41,11 +41,11 @@
             display : none;
         }
         
-        .book-cover:hover + .book-desc {
+        .book-grid:hover .book-desc {
             display: block;
         }
 
-        .book-cover + .book-desc {
+        .book-grid .book-desc {
             display: none;
         }
 
@@ -57,11 +57,6 @@
 
         .button-pinjam {
             bottom: 5px;
-        }
-
-        .book-hover:hover ~ .book-desc{
-            display: block;
-            
         }
         </style>
 
@@ -78,7 +73,7 @@
                 $thisbook =  '
                 <div class="book-grid" id="book-grid'.$b->book_id.'"> 
                     <a href="books/details/'.$b->book_id.'">
-                    <div class="book-hover">
+                    <div>
                          <img src="'.$b->img_path.'" alt="" class="book-cover" id="book-cover'.$b->book_id.'">
                     </div>
                     <div class="book-desc pull-right" id="book-desc'.$b->book_id.'">
