@@ -12,6 +12,12 @@
 
 			return $query;
 		}
+
+		function getUserName($user_id){
+			$sql = "Select username from user where user_id='$user_id'";
+			$query = $this->db->query($sql);
+			return $query;
+		}
 	}
 ?>	
 

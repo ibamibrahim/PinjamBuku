@@ -170,6 +170,7 @@
                   <h3>Review</h3>
                 </div>
               </div>
+              <div id="new-review"></div>
               <?php
                 foreach ($review as $key => $r) {
                   echo ' <div class="row">
@@ -178,7 +179,6 @@
                     <img class="img-responsive user-photo" src="' . base_url() .'/PPWE_1/assets/images/dummy.png">
                   </div>
                 </div>';
-
                   echo ' <div class="col-sm-7">
                   <div class="panel panel-default">
                     <div class="panel-heading">
@@ -190,6 +190,7 @@
               ?>
             <div id="review">
                 <?php
+                    $user_id = $this->session->userdata('user_id');
                     if ($isLoggedIn) {
                         echo '   <div class="row">
                   <div class="col-sm-1">
@@ -200,8 +201,9 @@
                   <div class="col-sm-7">
                     <div class="panel panel-default">
                         <form action="' . base_url() . 'PPWE_1/index.php/books/review" method="post">
-                        <textarea class="form-control" cols="50" name="content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
-                        <input type="hidden" name="book-id" value="';
+                        <input type="hidden" name="user-id" id="review-user_id" value="'.$user_id.'">
+                        <textarea class="form-control" cols="50" name="content" id="review-content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
+                        <input type="hidden" name="book-id" id="review-book_id" value="';
                         foreach ($bookdetail as $b) {
                             echo $b->book_id;
                         }
@@ -211,8 +213,7 @@
                   </div>
                   <div class="row">
                     <div class="col-xs-7"></div>
-                    <input type="hidden" name="book_id_review" value="<?php echo $b->book_id ?>">
-                    <input type="submit" value="Review" name="submit-review" class="btn btn-primary">
+                    <button value="Review" type="button" id="review-button" name="submit-review" class="btn btn-primary">Review</button>
                   </div>';
                     } else {
                         echo "<form action='" . base_url() . "PPWE_1/index.php/login' method='post'><button type='submit' class='btn btn-primary btn-sm'>Login untuk mereview</button></form>";
@@ -224,5 +225,20 @@
             </div>
      <script src="<?php echo base_url();?>PPWE_1/assets/js/jquery-3.1.1.min.js"></script>
      <script src="<?php echo base_url();?>PPWE_1/assets/js/bootstrap.min.js"></script>
+    <script>
+        $( document ).ready(function() {
+            $('#review-button').click(function(){
+                var book_id = $('#review-book_id').val();
+                var content = $('#review-content').val();
+                var placeholder = $('#new-review');
+                $.post("<?php echo base_url()?>PPWE_1/index.php/books/review",{"content": content, "book-id": book_id, },function(response){
+                    console.log(response);
+                    response = jQuery.parseJSON(response);
+                    placeholder.append(response);
+                    $('#review-content').val("");
+                });
+            });
+        });
+    </script>
 	</body>
 </html>

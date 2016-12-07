@@ -8,6 +8,7 @@ class Books extends CI_Controller {
 		$this->load->model('m_books');
 		$this->load->model('m_loan');
 		$this->load->model('m_review');
+		$this->load->model('m_user');
 
 
 		//load helper
@@ -45,9 +46,23 @@ class Books extends CI_Controller {
 		$bookid = $this->input->post('book-id'); 
 
 		$this->m_review->addReview($bookid, $user_id, $date, $content);
-		
-		redirect(base_url(). 'PPWE_1/index.php/books/details/'.$bookid);
 
+		$usernam_response = $this->m_user->getUserName($user_id)->result();
+		$username ="";
+		foreach ($usernam_response as $user){
+            $username = $user->username;
+        }
+
+		$response = ' <div class="row">
+                <div class="col-sm-1">
+                  <div class="thumbnail">
+                    <img class="img-responsive user-photo" src="' . base_url() .'/PPWE_1/assets/images/dummy.png">
+                  </div>
+                </div> <div class="col-sm-7">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <strong>' . $username . '</strong> <span class="text-muted"> commented on ' . $date . '</span></div><div class="panel-body">' . $content. '</div></div></div></div>';
+		echo json_encode($response);
 	}
 
 	public function pinjam(){
