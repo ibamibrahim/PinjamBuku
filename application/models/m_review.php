@@ -6,7 +6,7 @@
 		}
 
 		function getReview($id){
-			$sql = "SELECT review_id, date, content, username from review r, user u WHERE book_id = '$id' and r.user_id = u.user_id ";
+			$sql = "SELECT review_id, date, content, username from review r, user u WHERE book_id = '$id' and r.user_id = u.user_id order by review_id desc";
 			$query = $this->db->query($sql);
 
 			return $query;
