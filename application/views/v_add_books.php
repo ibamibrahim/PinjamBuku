@@ -41,7 +41,7 @@
     <div class="col-sm-4">
         <div class="text-center">
             <input type="file" name="book_image" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple/>
-            <label for="file"><span>Choose a file</span></label>
+            <label for="file" class="btn btn-primary margin"><span>Choose a file</span></label>
             <input class="form-control" disabled id="input_file_name">
         </div>
     </div>
@@ -111,7 +111,7 @@
             </div>
     </div>
     <div align="center">
-    	<input type="submit" value="Menambahkan Buku" class="btn btn-primary">
+    	<input type="submit" value="Menambahkan Buku" class="btn btn-primary margin">
 		</form>
     </div> 
      <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -127,20 +127,8 @@
 			z-index: -1;
 		}
 		.inputfile + label {
-		    font-size: 1.25em;
-		    font-weight: 700;
-		    color: white;
-		    background-color: black;
 		    display: inline-block;
-		    color: #fff;
-		    background-color: #d9534f;
-		    border-color: #d43f3a;
-		    padding-right: 10px;
-		    padding-left: 10px;
-		    padding-top: 7px;
-		    padding-bottom: 7px;
 		    float: left;
-		    border-radius: 10px;
 		}
 
 		#input_file_name{
@@ -148,28 +136,20 @@
 			text-align: center;
 		}
 
-		input {
-			text-align: center;
-		}
-
-		.inputfile:focus + label,
-		.inputfile + label:hover {
-		    color: #fff;
-		    background-color: #d9534f;
-		    border-color: #d43f3a;		
-		}
 		.inputfile + label {
 			cursor: pointer; /* "hand" cursor */
 	
-		}
-		.inputfile + label:hover{
-			background-color: #c0392b;
 		}
 
 		.inputfile:focus + label {
 			outline: 1px dotted #000;
 			outline: -webkit-focus-ring-color auto 5px;
 		}
+
+        .margin {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
 
 		/*http://jsfiddle.net/4cwpLvae/*/
 		/*http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/*/
