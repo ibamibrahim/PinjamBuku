@@ -2,6 +2,7 @@
 <html>	
 	<head>
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/login-style.css">
 		<title>
 			Login
 		</title>
