@@ -1,6 +1,9 @@
 <style>
-   .navbar-default{
+  .navbar-default{
     background-color: rgba(255,255,255,0.87);
+  }
+  * {
+    color: #052B4F;
   }
 </style>
 <div id="nav">
@@ -18,9 +21,10 @@
                   $role = $this->session->userdata('role');
     						echo '<div class="navbar-nav">
     							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>  '.$this->session->userdata('username').'  <span class="caret"></span></a>
-        						<ul class="dropdown-menu">
-          						    <li><a href="'.base_url().'PPWE_1/index.php/dashboard/pinjaman"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';
-          					     if($role == 'admin'){
+        						<ul class="dropdown-menu">';
+                         if($role == 'user'){
+          						    echo'<li><a href="'.base_url().'PPWE_1/index.php/dashboard/pinjaman"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';}
+                          else if($role == 'admin'){
                                      echo ' <li><a href="'.base_url().'PPWE_1/index.php/dashboard/add_book"><span class="glyphicon glyphicon-plus"></span>Tambahkan buku</a></li>';
                                  }
                                 echo '<li role="separator" class="divider"></li>';
