@@ -60,7 +60,7 @@
         <div class="col-xs-1"></div>
         <div class="col-xs-2 pull-left" id="book-cover">
           <div class="container">
-            <img src="<?php echo base_url()?>/PPWE_1/assets/images/dummy.png" class="img-responsive" alt="none" width='300px' height='400px'>
+            <img src="<?php echo $img_path?>" class="img-responsive" alt="none" width='300px' height='400px'>
           </div>
         </div>
         <div class="col-xs-1"></div>
@@ -86,6 +86,43 @@
             <div id="jumlahBuku">
               <?php echo $quantity ?>
             </div>
+              <?php
+
+              $isLoggedIn = $this->session->has_userdata('username');
+              if($isLoggedIn){
+                  if($quantity > 0){
+                      $isSudahDipinjam = false;
+                      foreach($loaned_book as $book){
+                          if($book_id == $book->book_id) {
+                            //buku udah dipinjem
+                              echo '<form action="'.base_url().'PPWE_1/index.php/books/kembalikan" method="post">
+                                <input type="hidden" name="loan_id" value="' .$book->loan_id .'">
+                                <input type="hidden" name="book_id_kembalikan" value="'.$book_id.'">
+                                <input type="hidden" name="page" value="page-details">
+                                <button type="submit" class="btn btn-danger btn-sm" value="Kembalikan">Kembalikan</button>
+                            </form>';
+                              $isSudahDipinjam = true;
+                              break;
+                          }
+                      }
+                      if(!$isSudahDipinjam){
+                      echo '<form action="'.base_url().'PPWE_1/index.php/books/pinjam" method="post">
+                      <input type="hidden" name="book_id_pinjam" value="'.$book_id.'">
+                      <input type="hidden" name="page" value="page-details">
+                      <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.'buku lagi</button>
+                      </form>';
+                      }
+                  } else {
+                    echo '<form action="books/pinjam" method="post">
+                    <input type="hidden" name="book_id_pinjam" value="'.$book_id.'">
+                    <input type="submit" class="btn btn-primary btn-sm" value="Stock habis" disabled>
+                    </form>';
+                  }
+                  } else {
+                        echo '<form action="'.base_url().'PPWE_1/index.php/" method="post"><button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Login untuk      meminjam</button></form>';
+                  }
+
+              ?>
           </div>
         </div>
       </div>
@@ -95,8 +132,7 @@
                   <h3>Review</h3>
                 </div>
               </div>
-              <?php 
-
+              <?php
                 foreach ($review as $key => $r) {
                   echo ' <div class="row">
                 <div class="col-sm-1">
@@ -115,6 +151,12 @@
 
               ?>
             <div id="review">
+                <?php if($isLoggedIn){
+                    echo "mantap";
+                } else {
+                    echo "<form action=\"'.base_url().'PPWE_1/index.php/\" method=\"post\"><button type=\"submit\" class=\"btn btn-primary btn-sm\" value=\"Pinjam\">Login untuk mereview</button></form>";
+                }
+                ?>
                 <div class="row">
                   <div class="col-sm-1">
                     <div class="thumbnail">
@@ -126,7 +168,7 @@
                         <form action="<?php echo base_url(). 'PPWE_1/index.php/books/review'; ?>" method="post">
                         <textarea class="form-control col" cols="50" name="content" placeholder="Masukkan Review Buku..." rows="4"></textarea>
                         <input type="hidden" name="book-id" value=
-                        <?php 
+                        <?php
                           foreach ($bookdetail as $b) { 
                             echo "'" . $b->book_id . "'"; 
                           } 

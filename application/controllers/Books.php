@@ -6,6 +6,7 @@ class Books extends CI_Controller {
 		parent::__construct();		
 		// load model
 		$this->load->model('m_books');
+		$this->load->model('m_loan');
 		$this->load->model('m_review');
 
 
@@ -25,11 +26,13 @@ class Books extends CI_Controller {
 	}
 
 	public function details($id){
-
-		$data['bookdetail'] = $this->m_books->getBook($id)->result();
+        $this->load->library('session');
+        $user_id = $this->session->userdata('user_id');
+        $data['bookdetail'] = $this->m_books->getBook($id)->result();
 		$data['review'] = $this->m_review->getReview($id)->result();
+        $data['loaned_book'] = $this->m_loan->getLoanedBook($user_id)->result();
 
-		$this->load->view('v_books_details', $data);
+        $this->load->view('v_books_details', $data);
 
 	}
 
@@ -50,7 +53,25 @@ class Books extends CI_Controller {
 	public function pinjam(){
 		$user_id = $this->session->userdata('user_id');		
 		$book_id = $this -> input -> post('book_id_pinjam');
-		$this->m_books->pinjam($user_id, $book_id);
+        $this->m_books->pinjam($user_id, $book_id);
+        $page = $this->input->post('page');
+        if($page == 'dashboard'){
+            redirect(base_url().'PPWE_1/index.php/dashboard');
+        } else {
+            redirect(base_url().'PPWE_1/index.php/books/details/'.$book_id);
+        }
+	}
+
+	public function kembalikan(){
+		$loan_id = $this -> input -> post('loan_id');
+		$book_id = $this -> input -> post('book_id_kembalikan');
+		$this->m_books->kembalikan($loan_id, $book_id);
+        $page = $this->input->post('page');
+        if($page == 'dashboard'){
+            redirect(base_url().'PPWE_1/index.php/dashboard');
+        } else {
+            redirect(base_url().'PPWE_1/index.php/books/details/'.$book_id);
+        }
 	}
 
 	public function add_book(){

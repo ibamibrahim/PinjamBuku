@@ -87,19 +87,39 @@
                                 <p>'.$b->author.'</p>
                             </div>
                             <div class="pull-right button-pinjam">';
-                               if(isset($user)){
+                            $isLoggedIn = $this->session->has_userdata('username');
+                               if($isLoggedIn){
                                 if($b->quantity > 0){
-                                echo '<form action="books/pinjam" method="post">
-                                    <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
-                                    <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.' buku lagi</button>
+                                    $isSudahDipinjam = false;
+                                    foreach($loaned_book as $book){
+                                        if($book->book_id == $b->book_id) {
+                                            //buku udah dipinjem
+                                            echo '<form action="books/kembalikan" method="post">
+                                    <input type="hidden" name="loan_id" value="' .$book->loan_id .'">
+                                    <input type="hidden" name="page" value="dashboard">
+                                    <input type="hidden" name="book_id_kembalikan" value="'.$b->book_id.'">
+                                    <button type="submit" class="btn btn-danger btn-sm" value="Kembalikan">Kembalikan</button>
                                 </form>';
+                                            $isSudahDipinjam = true;
+                                            break;
+                                        }
+                                    }
+                                    if(!$isSudahDipinjam){
+                                        echo '<form action="books/pinjam" method="post">
+                                    <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
+                                    <input type="hidden" name="page" value="dashboard">
+                                    <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.'buku lagi</button>
+                                </form>';
+                                    }
                                 } else {
                                   echo '<form action="books/pinjam" method="post">
                                     <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
                                     <input type="submit" class="btn btn-primary btn-sm" value="Stock habis" disabled>
                                 </form>';
                                 }
-                            }
+                            } else {
+                                echo '<form action="login" method="post"><button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Login untuk meminjam</button></form>';
+                               }
                             echo '</div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 			<nav class="navbar navbar-default navbar-fixed-top shadow-1">
 				<div class="container-fluid">
 					<div class="navbar-header">
-      					<a class="navbar-brand" href="#">PinjamBuku</a>
+      					<a class="navbar-brand" href="<?php echo base_url().'PPWE_1/index.php'; ?>">PinjamBuku</a>
     				</div>
                     <?php
                     $this->load->library('session');
