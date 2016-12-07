@@ -7,11 +7,13 @@
     <title>PinjamBuku</title>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Reem+Kufi" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
     <style type="text/css">
         body{
             padding-top: 60px;
+            font-family: 'Reem Kufi', sans-serif;
 
         }
         #content{
@@ -33,6 +35,9 @@
         .book-desc {
             padding: 10px;
             background-color: #f3f3f3;
+        }
+        h1{
+            font-family: 'Aref Ruqaa';
         }
     </style>
 </head>
@@ -92,7 +97,7 @@ foreach ($loaned_book as $b){
 echo '</div>';
 if(count($loaned_book) == 0){
     echo "<div class='container'>
-    <h1 style='color: white;'>Anda belum meminjam buku apapun</h1>
+    <h1>Anda belum meminjam buku apapun</h1>
     </div>";
 }
 ?>
