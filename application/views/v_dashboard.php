@@ -28,6 +28,7 @@
             background-color: #f3f3f3;
             height: 450px;
             text-align: justify;
+            overflow: scroll;
         }
         .book-cover {
             height: 450px;
