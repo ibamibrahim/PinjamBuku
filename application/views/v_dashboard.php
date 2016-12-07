@@ -6,6 +6,7 @@
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa:700" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
         <style type="text/css">
@@ -31,7 +32,7 @@
         }
         .book-desc {
             padding: 10px;
-            background-color: #ff6700;
+            background-color: #f3f3f3;
         }
         </style>
 	</head>
@@ -56,8 +57,9 @@
                 echo '
                 <div class="col-sm-4 col-md-3 col-lg-2 book-grid">
                     <div class="book-card shadow-2 shadow">
+                        <a href="books/details/'.$b->book_id.'">
                         <div>
-                            <a href="books/details/'.$b->book_id.'"> <img src="'.$b->img_path.'" alt="" class="book-cover"></a>
+                             <img src="'.$b->img_path.'" alt="" class="book-cover">
                         </div>
                         <div class="book-desc">
                             <div>
@@ -88,7 +90,7 @@
                                         echo '<form action="books/pinjam" method="post">
                                     <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
                                     <input type="hidden" name="page" value="dashboard">
-                                    <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.'buku lagi</button>
+                                    <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Pinjam</button>
                                 </form>';
                                     }
                                 } else {
@@ -112,6 +114,7 @@
                                }
                             echo '</div>
                         </div>
+                        </a>
                     </div>
                 </div>';
             }

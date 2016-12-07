@@ -4,6 +4,7 @@
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa:700" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
     <style type="text/css">

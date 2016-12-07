@@ -1,6 +1,6 @@
 <style>
-  #nav {
-    background-color: #ebebeb;
+   .navbar-default{
+    background-color: rgba(255,255,255,0.87);
   }
 </style>
 <div id="nav">
@@ -15,13 +15,15 @@
                 echo '<div class="navbar-nav navbar-right">';
     					  if($isLoggedIn) {
     					    $username = $this->session->userdata('username');
+                  $role = $this->session->userdata('role');
     						echo '<div class="navbar-nav">
-    							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>'.$this->session->userdata('username').'<span class="caret"></span></a>
+    							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>  '.$this->session->userdata('username').'  <span class="caret"></span></a>
         						<ul class="dropdown-menu">
           						    <li><a href="'.base_url().'PPWE_1/index.php/dashboard/pinjaman"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';
-          					     if($username == 'admin'){
+          					     if($role == 'admin'){
                                      echo ' <li><a href="'.base_url().'PPWE_1/index.php/dashboard/add_book"><span class="glyphicon glyphicon-plus"></span>Tambahkan buku</a></li>';
                                  }
+                                echo '<li role="separator" class="divider"></li>';
                                 echo '<li><a href="'.base_url().'PPWE_1/index.php/logout"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
         						</ul></div>';
     					} else {

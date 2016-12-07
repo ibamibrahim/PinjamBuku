@@ -19,7 +19,7 @@ break;
 if(!$isSudahDipinjam){
 echo '<form action="books/pinjam" method="post">
     <input type="hidden" name="book_id_pinjam" value="'.$book_id.'">
-    <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.'buku lagi</button>
+    <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">Pinjam</button>
 </form>';
 }
 } else {

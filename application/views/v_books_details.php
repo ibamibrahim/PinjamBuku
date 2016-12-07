@@ -5,6 +5,7 @@
 	<head>
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa:700" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
     <style type="text/css">
@@ -58,8 +59,8 @@
     }
 
     .subtitle{
-    	font-size: 24px;
-    	padding-bottom: 2px;
+      margin-bottom: 0px;
+    	font-size: 1.5em;
     	font-family: nevis; /* Download nevis font in http://tenbytwenty.com/?xxxx_posts=nevis */
     }
     </style>
@@ -90,30 +91,19 @@
         <div class="col-xs-1"></div>
         <div class="col-xs-8" id="book-desc">
           <div>
-            <div class="subtitle">
-          		<p>Penulis</p>
-          	</div>
-            <div id="penulis">
+            <div>
+          		<p class="subtitle">Penulis</p>
               <?php echo $author ?>
             </div>
-            <div class="subtitle">
-          		<p>Penerbit</p>
-          	</div>
-            <div id="penerbit">
+            <div>
+          		<p class="subtitle">Penerbit</p>
               <?php echo $publisher ?>
             </div>
-            <div class="subtitle">
-          		<p>Deskripsi</p>
-          	</div>
             <div>
+          		<p class="subtitle">Deskripsi</p>
               <?php echo $desc ?>
             </div>
-            <div class="subtitle">
-          		<p>Jumlah Buku yang tersedia</p>
-          	</div>
-            <div id="jumlahBuku">
-              <?php echo $quantity ?>
-            </div>
+            <br>
               <?php
               $isSudahDipinjam = false;
               foreach($loaned_book as $book){
@@ -138,7 +128,7 @@
                           echo '<form action="'.base_url().'PPWE_1/index.php/books/pinjam" method="post">
                                     <input type="hidden" name="book_id_pinjam" value="'.$b->book_id.'">
                                     <input type="hidden" name="page" value="page-details">
-                                    <button type="submit" class="btn btn-primary btn-sm" value="Pinjam">'.$b->quantity.'buku lagi</button>
+                                    <button type="submit" class="btn btn-primary btn-md" value="Pinjam">Pinjam <span class="badge">'.$b->quantity.'</span></button>
                                 </form>';
                       }
                   } else {
