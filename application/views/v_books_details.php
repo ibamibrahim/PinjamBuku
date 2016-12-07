@@ -6,14 +6,11 @@
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
     <style type="text/css">
     @font-face {
     	font-family: nevis;
     	src: url('Fonts/nevis.ttf');
-	}
-	@font-face {
-        font-family: maitree;
-        src: url('https://fonts.googleapis.com/css?family=Maitree');
 	}
 
 	h1
@@ -214,6 +211,7 @@
                 </div>
             </div>
             </div>
-     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+     <script src="<?php echo base_url();?>PPWE_1/assets/js/jquery-3.1.1.min.js"></script>
+     <script src="<?php echo base_url();?>PPWE_1/assets/js/bootstrap.min.js"></script>
 	</body>
 </html>

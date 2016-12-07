@@ -1,3 +1,8 @@
+<style>
+  #nav {
+    background-color: #ebebeb;
+  }
+</style>
 <div id="nav">
 			<nav class="navbar navbar-default navbar-fixed-top shadow-1">
 				<div class="container-fluid">
@@ -7,12 +12,10 @@
               <?php
                 $this->load->library('session');
                 $isLoggedIn = $this->session->has_userdata('username');
+                echo '<div class="navbar-nav navbar-right">';
     					  if($isLoggedIn) {
     					    $username = $this->session->userdata('username');
-    						echo '<div class="navbar-nav navbar-right">
-                  <?php 
-    					if($logged_in) {
-    						echo "<div class="navbar-nav">
+    						echo '<div class="navbar-nav">
     							<a class="navbar-text dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>'.$this->session->userdata('username').'<span class="caret"></span></a>
         						<ul class="dropdown-menu">
           						    <li><a href="#"><span class="glyphicon glyphicon-book"></span> Pinjaman</a></li>';

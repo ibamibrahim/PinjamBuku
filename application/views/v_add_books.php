@@ -5,6 +5,7 @@
 		<title>PinjamBuku</title>
 		<meta charset="UTF-8">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>PPWE_1/assets/css/style.css">
     <style type="text/css">
       #title{
         text-align: center;
@@ -155,6 +156,8 @@
 		/*http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/*/
 
 	</style>
+    <script src="<?php echo base_url();?>PPWE_1/assets/js/jquery-3.1.1.min.js"></script>
+     <script src="<?php echo base_url();?>PPWE_1/assets/js/bootstrap.min.js"></script>
 	<script>
 		/*http://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/*/
 		var inputs = document.querySelectorAll( '.inputfile' );
