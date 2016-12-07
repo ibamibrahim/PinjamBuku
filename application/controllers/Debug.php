@@ -23,4 +23,8 @@ class Debug extends CI_Controller {
 	public function admin(){
 		$this->load->view('d_admin');
 	}
+
+	public function list_pinjaman(){
+		$this->load->view('d_listPinjaman');
+	}
 }
