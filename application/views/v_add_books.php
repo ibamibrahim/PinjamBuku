@@ -14,7 +14,7 @@
     </style>
 	</head>
   	<body>
-    <?php if(isset($error)){echo $error;}
+    <?php
         $this->load->view('header');
     ?>
       <div class="container" id="title">
@@ -26,6 +26,15 @@
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
         <div class="text-center">
+            <?php
+            if(isset($error)){
+                echo '
+            <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+           <strong>' .$error.
+                    '</strong></div>';
+            }
+            ?>
             <input type="file" name="book_image" id="file" class="inputfile" data-multiple-caption="{count} files selected" multiple/>
             <label for="file" class="btn btn-primary margin"><span>Choose a file</span></label>
             <input class="form-control" disabled id="input_file_name">
@@ -33,6 +42,7 @@
     </div>
     <div class="col-sm-4"></div>
 </div>
+
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
@@ -42,7 +52,7 @@
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
-            <input type="text" class="form-control col" cols="50" name="judul" placeholder="Masukkan Judul Buku..." rows="1"></input>
+            <input type="text" class="form-control col" cols="50" name="judul" placeholder="Masukkan Judul Buku..." rows="1" required></input>
         </div>
     </div>
     <div class="row">
@@ -54,7 +64,7 @@
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
-            <input type="text" class="form-control col" cols="50" name="penulis" placeholder="Masukkan Nama Penulis..." rows="1"></input>
+            <input type="text" class="form-control col" cols="50" name="penulis" placeholder="Masukkan Nama Penulis..." rows="1" required></input>
         </div>
     </div>
     <div class="row">
@@ -66,7 +76,7 @@
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
-            <input type="text" class="form-control col" cols="50" name="penerbit" placeholder="Masukkan Nama Penerbit Buku..." rows="1"></input>
+            <input type="text" class="form-control col" cols="50" name="penerbit" placeholder="Masukkan Nama Penerbit Buku..." rows="1" required></input>
         </div>
     </div>
     <div class="row">
@@ -78,7 +88,7 @@
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
-            <textarea class="form-control col" cols="50" name="deskripsi" placeholder="Masukkan Deskripsi Buku..." rows="4"></textarea>
+            <textarea class="form-control col" cols="50" name="deskripsi" placeholder="Masukkan Deskripsi Buku..." rows="4" required></textarea>
         </div>
     </div>
     <div class="row">
@@ -90,7 +100,7 @@
     <div class="row">
         <div class="col-xs-4"></div>
         <div class="col-xs-4">
-            <input type="number" min="0" class="form-control col" cols="50" name="jumlah" placeholder="Masukkan Jumlah Buku..." rows="1"></input>
+            <input type="number" min="0" class="form-control col" cols="50" name="jumlah" placeholder="Masukkan Jumlah Buku..." rows="1" required></input>
         </div>
     </div>
     <div class="clearfix"></div>

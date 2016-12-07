@@ -99,9 +99,7 @@ class Books extends CI_Controller {
 
                 $error = array('error' => $this->upload->display_errors());
                 echo $error['error'];
-                
-
-                //$this->load->view('v_add_books', $error);
+                $this->load->view('v_add_books', $error);
         }
 
         else
@@ -124,7 +122,8 @@ class Books extends CI_Controller {
             	if(!$udahAda){
                 		$this->m_books->addNewBook($img_path, $title, $author, $publisher, $description, $quantity);
                 	}
-                //$this->load->view('upload_success', $data);
+                $error['error'] = "Successfully done!";
+                $this->load->view('v_add_books', $error);
         }
 	
 
